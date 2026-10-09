@@ -58,7 +58,7 @@ internal sealed class IslandRuntime : IDisposable
             if (book is not null)
             {
                 SecondRow = new SecondRow(View.Contents, Controller, book, pages.World, Path.GetFileName(Environment.ProcessPath));
-                Search = new SearchSession(Controller, SearchEntries, () => Media?.PlayedServices ?? [],
+                Search = new SearchSession(Controller, SearchEntries,
                     entry =>
                     {
                         if (entry.IsPick && pages.PickById(entry.Key) is { } pick) pages.ClickPick(pick);

@@ -59,6 +59,22 @@ public sealed class PageStore
 
     // ---- Changing --------------------------------------------------------
 
+    /// <summary>
+    /// The page moved to <paramref name="toIndex"/> in the order (Dan, 2026-10-09, version 1.0.1): the island, Tab and the number keys 1 to 9 follow the order,
+    /// so the first page is the one 1 opens. An index past the end means the end. A page that is not there is refused; a move to where it already is changes nothing.
+    /// </summary>
+    public PageEdit Move(string id, int toIndex)
+    {
+        var from = Pages.ToList().FindIndex(p => p.Id == id);
+        if (from < 0) return new PageEdit(this, null, "That page is not there any more.", null);
+        var to = Math.Clamp(toIndex, 0, Pages.Count - 1);
+        var order = Pages.ToList();
+        var page = order[from];
+        order.RemoveAt(from);
+        order.Insert(to, page);
+        return new PageEdit(new PageStore(order), page, null, null);
+    }
+
     /// <summary>A new page at the end of the list; it gets the next free number key.</summary>
     public PageEdit Create(string name, string colour)
     {

@@ -40,7 +40,7 @@ internal static class GeneralSection
     /// "Browser add-on" and beside it "Connected" (with the number when more than one browser) or "Not connected" (WORK-ORDER-9 section 2). It follows the listener
     /// while the screen is open; a session with no listener reads "Not connected". It shows a number and nothing else about the add-on.
     /// </summary>
-    private static Border AddonCard(ISectionHost host, SettingsSession session)
+    internal static Border AddonCard(ISectionHost host, SettingsSession session)
     {
         var status = session.Addon;
         var text = new StackPanel { VerticalAlignment = VerticalAlignment.Center };

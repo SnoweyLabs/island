@@ -13,7 +13,7 @@ public static class SiteAddress
     /// scheme put in front. The text is percent-encoded there. Null when the text is blank. Only given away, to the person's browser.
     /// </summary>
     public static string? ForSearch(SearchService service, string? text) =>
-        SearchServices.Address(service, text) is { } address ? "https://" + address : null;
+        SearchServices.Address(service, text) is { } address ? (service == SearchService.ThisComputer ? address : "https://" + address) : null;
 
     /// <summary>The host of an address, with or without its scheme ("www.youtube.com/watch" and "https://www.youtube.com/watch" give the same); null when there is none.</summary>
     public static string? HostOf(string? address)

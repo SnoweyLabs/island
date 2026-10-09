@@ -212,6 +212,15 @@ public sealed class SettingsSession
     public SessionResult RenamePage(string id, string name) =>
         Locked(_pagesLocked, "pages.json") ?? ApplyPageEdit(Pages.Rename(id, name));
 
+    /// <summary>Puts a page at another place in the order (dragged in "Your pages"); the island takes the new order at once.</summary>
+    public SessionResult MovePage(string id, int toIndex)
+    {
+        if (Locked(_pagesLocked, "pages.json") is { } locked) return locked;
+        var edit = Pages.Move(id, toIndex);
+        if (edit.Refusal is null && edit.Store.Pages.SequenceEqual(Pages.Pages)) return new SessionResult(false, null); // already there: nothing is written
+        return ApplyPageEdit(edit);
+    }
+
     public SessionResult RecolourPage(string id, string colour) =>
         Locked(_pagesLocked, "pages.json") ?? ApplyPageEdit(Pages.Recolour(id, colour));
 

@@ -44,6 +44,7 @@ public sealed class SettingsView : UserControl, ISectionHost
         SetupStep.Practice => SettingsSection.Practice,
         SetupStep.Pages => SettingsSection.Pages,
         SetupStep.OnTheIsland => SettingsSection.OnTheIsland,
+        SetupStep.Addon => SettingsSection.Addon,
         _ => SettingsSection.Mode,
     };
 
@@ -124,7 +125,7 @@ public sealed class SettingsView : UserControl, ISectionHost
         get => _section;
         set
         {
-            if (!Enum.IsDefined(value)) return;
+            if (!Enum.IsDefined(value) || Array.FindIndex(_sections, x => x.Id == value) < 0) return; // a step of the setup is not a section of the settings, and the other way round
             CancelCapture();
             _openPanel = null;
             _notice = null;
@@ -280,6 +281,7 @@ public sealed class SettingsView : UserControl, ISectionHost
         SettingsSection.Mode => ModeSection.Build(this),
         SettingsSection.Welcome => WelcomeSection.Build(this),
         SettingsSection.Practice => PracticeSection.Build(this),
+        SettingsSection.Addon => AddonSection.Build(this),
         SettingsSection.Glass => GlassSection.Build(this),
         SettingsSection.CodingAgents => AgentsSection.Build(this),
         _ => GeneralSection.Build(this),

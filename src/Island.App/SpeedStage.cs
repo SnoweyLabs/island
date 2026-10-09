@@ -384,7 +384,7 @@ internal sealed class SpeedStage(SelfTestReport report, TimeSpan hangLimit, stri
         var inv = CultureInfo.InvariantCulture;
         var measured = $"Measured by `--selftest <folder> --speed` on {DateTimeOffset.Now:yyyy-MM-dd}, one laptop, Release build. Each figure is the middle one of {Samples} readings, in milliseconds, with the spread (highest minus lowest) and every reading, in the order they were taken. "
                        + "No real key was pressed: the handlers a key reaches were called. Rows 2 to 6 and 9 are on the self-test's pretend world with the island in Focus; rows 1, 7 and 10 go through the app's real start; row 8 uses the real icon reader on two files only. "
-                       + "Other programs were running (Dan's own copy of the island among them), so only differences larger than the spread mean anything. **A record, not a gate; one run on one laptop is an anecdote.**";
+                       + "Other programs were running (the owner's own copy of the island among them), so only differences larger than the spread mean anything. **A record, not a gate; one run on one laptop is an anecdote.**";
         var text = SpeedTable.Markdown(label, measured, _rows);
         var path = Path.Combine(folder, "perf.md");
         var existing = File.Exists(path) ? File.ReadAllText(path) : null;

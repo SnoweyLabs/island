@@ -52,7 +52,7 @@ internal sealed class SetupStage(SelfTestReport report, TimeSpan hangLimit, stri
         var target = Path.Combine(folder, "setup");
         Directory.CreateDirectory(target);
         var written = 0;
-        foreach (var (section, file) in new[] { (SettingsSection.Welcome, "welcome.png"), (SettingsSection.Key, "key.png"), (SettingsSection.Practice, "practice.png"), (SettingsSection.Pages, "pages.png"), (SettingsSection.OnTheIsland, "island.png"), (SettingsSection.Mode, "mode.png") })
+        foreach (var (section, file) in new[] { (SettingsSection.Welcome, "welcome.png"), (SettingsSection.Key, "key.png"), (SettingsSection.Practice, "practice.png"), (SettingsSection.Pages, "pages.png"), (SettingsSection.OnTheIsland, "island.png"), (SettingsSection.Addon, "chrome.png"), (SettingsSection.Mode, "mode.png") })
         {
             view.Section = section;
             var stage = new Grid { Width = 1920, Height = 1080, Background = new LinearGradientBrush(Color.FromRgb(0x1B, 0x1F, 0x3A), Color.FromRgb(0x2A, 0x18, 0x40), 90) };
@@ -65,8 +65,8 @@ internal sealed class SetupStage(SelfTestReport report, TimeSpan hangLimit, stri
             written++;
         }
 
-        report.Check("each of the six steps of the setup was drawn into review/setup", written == FirstStart.Steps.Count && File.Exists(Path.Combine(target, "mode.png")),
-            "welcome, key, try it, pages, island, mode (a snapshot proves it draws, not that it looks right)");
+        report.Check("each of the seven steps of the setup was drawn into review/setup", written == FirstStart.Steps.Count && File.Exists(Path.Combine(target, "chrome.png")) && File.Exists(Path.Combine(target, "mode.png")),
+            "welcome, key, try it, pages, island, chrome, mode (a snapshot proves it draws, not that it looks right)");
         report.Check("the setup shows the defaults: the starter picks and the mode Vibe is the one the table starts from", session.AllPicks.Count > 0 && Settings.Defaults.Mode == Mode.Vibe, $"{session.AllPicks.Count} picks, mode {Settings.Defaults.Mode}");
     }
 

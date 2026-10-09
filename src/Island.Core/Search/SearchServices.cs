@@ -10,8 +10,14 @@ public enum SearchService
     Twitch,
     Spotify,
 
-    /// <summary>Not a media service: its tile is always there when something is typed, after the media service's own.</summary>
+    /// <summary>Not a media service: its tile is always there when something is typed.</summary>
     Google,
+
+    /// <summary>
+    /// The files and folders of this computer (Dan, 2026-10-09): File Explorer's own search, opened with the text through Windows' search-ms protocol
+    /// (learn.microsoft.com, "Getting started with parameter-value arguments", updated 2025-10-03: <c>search-ms:query=&lt;URL-encoded text&gt;&amp;</c>).
+    /// </summary>
+    ThisComputer,
 }
 
 /// <summary>What the last tile of search says and where it goes.</summary>
@@ -55,7 +61,9 @@ public static class SearchServices
         ["open.spotify.com"] = SearchService.Spotify,
     };
 
-    public static string DisplayName(SearchService service) => Table[service].Name;
+    public static string DisplayName(SearchService service) => service == SearchService.ThisComputer ? ThisComputerName : Table[service].Name;
+
+    private const string ThisComputerName = "this computer";
 
     /// <summary>
     /// The service for a name as MediaNames gives it ("YouTube", "Spotify") or for a host ("music.youtube.com"); null for
@@ -94,9 +102,18 @@ public static class SearchServices
         return new SearchServiceTile(SearchService.Google, $"Search {AgentText.Clean(typed)} on Google", Address(SearchService.Google, typed)!);
     }
 
-    /// <summary>The tiles that come after the matches: the latest played media service's (if any), then Google's.</summary>
-    public static IReadOnlyList<SearchServiceTile> Tiles(IEnumerable<string?> playedOldestFirst, string? text) =>
-        [.. new[] { Tile(playedOldestFirst, text), GoogleTile(text) }.OfType<SearchServiceTile>()];
+    /// <summary>
+    /// The tiles that come after the matches, whenever something is typed (Dan, 2026-10-09): always the same three, YouTube, Google and this computer.
+    /// The tile for the media service that played last (<see cref="Tile"/>) is no longer shown.
+    /// </summary>
+    public static IReadOnlyList<SearchServiceTile> Tiles(string? text)
+    {
+        var typed = text?.Trim();
+        if (string.IsNullOrEmpty(typed)) return [];
+        var shown = AgentText.Clean(typed);
+        return [.. new[] { SearchService.YouTube, SearchService.Google, SearchService.ThisComputer }
+            .Select(service => new SearchServiceTile(service, $"Search {shown} on {DisplayName(service)}", Address(service, typed)!))];
+    }
 
     /// <summary>
     /// Host and path/query for the service's results page, no scheme; null for blank text. Where the text is a query value
@@ -108,6 +125,7 @@ public static class SearchServices
     {
         var typed = text?.Trim();
         if (string.IsNullOrEmpty(typed)) return null;
+        if (service == SearchService.ThisComputer) return "search-ms:query=" + Encode(Truncate(typed)) + "&";
         if (!Table.TryGetValue(service, out var row)) return null;
         return row.Pattern.Replace(TextMark, Encode(Truncate(typed)), StringComparison.Ordinal);
     }

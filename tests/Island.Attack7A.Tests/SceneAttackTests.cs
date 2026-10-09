@@ -288,7 +288,7 @@ public class SceneAttackTests
             Assert.Equal(!existed && !autostart && !self, FirstStart.ShouldRun(existed, autostart, self));
         Assert.Equal("Start", FirstStart.ButtonText(0));
         Assert.Equal("Done", FirstStart.ButtonText(FirstStart.Steps.Count - 1));
-        Assert.Equal(6, FirstStart.Steps.Count); // five until WORK-ORDER-13 added the step Try it (Dan's tutorial)
+        Assert.Equal(7, FirstStart.Steps.Count); // five until WORK-ORDER-13 added the step Try it (Dan's tutorial), six until Dan's step Chrome (version 1.0.1)
     }
 
     [Fact]

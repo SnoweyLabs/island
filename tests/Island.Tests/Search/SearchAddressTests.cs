@@ -44,7 +44,13 @@ public class SearchAddressTests
         {
             var address = SearchServices.Address(service, "x/../y?z=1&w=2#frag https:\\\\evil.example/")!;
 
-            var value = service == SearchService.Spotify ? address["open.spotify.com/search/".Length..] : address[(address.IndexOf('=') + 1)..];
+            // This computer's address ends with the "&" that closes the protocol's one parameter (search-ms syntax); the value is what stands before it.
+            var value = service switch
+            {
+                SearchService.Spotify => address["open.spotify.com/search/".Length..],
+                SearchService.ThisComputer => address.EndsWith('&') ? address[(address.IndexOf('=') + 1)..^1] : address,
+                _ => address[(address.IndexOf('=') + 1)..],
+            };
             Assert.DoesNotContain("/", value);
             Assert.DoesNotContain("&", value);
             Assert.DoesNotContain("?", value);
@@ -100,9 +106,26 @@ public class SearchAddressTests
         Assert.Equal("Search tu on Google", SearchServices.GoogleTile(" tu ")!.Name);
         Assert.Equal("www.google.com/search?q=tu", SearchServices.GoogleTile("tu")!.Address);
 
-        // Nothing has played: only Google's tile. Something has played: its tile first, Google's last. "Google" in the played list is not a player.
-        Assert.Equal([SearchService.Google], SearchServices.Tiles([], "tu").Select(t => t.Service));
-        Assert.Equal([SearchService.Twitch, SearchService.Google], SearchServices.Tiles(["Twitch", "Google"], "tu").Select(t => t.Service));
-        Assert.Empty(SearchServices.Tiles(["Twitch"], " "));
+        // Changed by Dan's decision of 2026-10-09: the tiles after the matches are always YouTube, Google and this computer, whatever played last.
+        Assert.Equal([SearchService.YouTube, SearchService.Google, SearchService.ThisComputer], SearchServices.Tiles("tu").Select(t => t.Service));
+        Assert.Empty(SearchServices.Tiles(" "));
+    }
+
+    [Fact]
+    public void The_Three_Tiles_Say_Where_They_Search_And_This_Computer_Opens_File_Explorers_Search()
+    {
+        var tiles = SearchServices.Tiles(" tu ");
+        Assert.Equal(["Search tu on YouTube", "Search tu on Google", "Search tu on this computer"], tiles.Select(t => t.Name));
+        Assert.Equal("www.youtube.com/results?search_query=tu", tiles[0].Address);
+
+        // search-ms:query=<URL-encoded text>& (Microsoft Learn, "Getting started with parameter-value arguments"): no scheme of the web, nothing of the text can add a parameter.
+        Assert.Equal("search-ms:query=tu&", SiteAddress.ForSearch(SearchService.ThisComputer, "tu"));
+        Assert.Equal("search-ms:query=a%20b%26crumb%3Dfolder%3AC%3A&", SiteAddress.ForSearch(SearchService.ThisComputer, @"a b&crumb=folder:C:"));
+        Assert.Equal("https://www.google.com/search?q=tu", SiteAddress.ForSearch(SearchService.Google, "tu"));
+        Assert.Null(SiteAddress.ForSearch(SearchService.ThisComputer, "  "));
+        Assert.Equal("this computer", SearchServices.DisplayName(SearchService.ThisComputer));
+
+        // "this computer" is never taken for a media service that played.
+        Assert.Null(SearchServices.Parse("this computer"));
     }
 }

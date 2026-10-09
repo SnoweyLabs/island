@@ -35,7 +35,7 @@ internal static class IslandWarmUp
             controller = new IslandController(view, machine, width);
             // Search with three invented entries, so that the first typed letter does not find the search code cold either.
             SearchEntry[] entries = [.. new[] { "Alpha", "Alpine", "Beta" }.Select(name => new SearchEntry(name, "program:" + name.ToLowerInvariant(), true, false, new Item(name, "invented", name[..2].ToUpperInvariant(), 200, "program:" + name.ToLowerInvariant())))];
-            controller.Search = new SearchSession(controller, () => entries, () => [], _ => { }, (_, _) => { });
+            controller.Search = new SearchSession(controller, () => entries, _ => { }, (_, _) => { });
             for (var step = 0; step < Steps; step++)
             {
                 await ui.InvokeAsync(() => Step(controller, view, front, step), DispatcherPriority.ApplicationIdle);

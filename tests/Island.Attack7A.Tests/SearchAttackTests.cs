@@ -70,6 +70,19 @@ public class SearchAttackTests
             var address = SiteAddress.ForSearch(service, text);
             if (string.IsNullOrWhiteSpace(text)) { Assert.Null(address); continue; }
             Assert.NotNull(address);
+            if (service == SearchService.ThisComputer)
+            {
+                // Added with Dan's tile of 2026-10-09: Windows' search-ms protocol, search-ms:query=<encoded text>&, the text one value that adds no parameter.
+                Assert.StartsWith("search-ms:query=", address, StringComparison.Ordinal);
+                Assert.EndsWith("&", address, StringComparison.Ordinal);
+                var value = address["search-ms:query=".Length..^1];
+                Assert.True(value.All(ch => ch < 128 && (char.IsAsciiLetterOrDigit(ch) || "-._~%".Contains(ch))), "raw character in " + address);
+                Assert.Equal(1, address.Count(ch => ch == '='));
+                Assert.Equal(1, address.Count(ch => ch == '&'));
+                Assert.True(address.Length < 2100, $"length {address.Length}");
+                continue;
+            }
+
             Assert.True(Uri.TryCreate(address, UriKind.Absolute, out var uri), address);
             var expectedHost = service switch { SearchService.YouTube => "www.youtube.com", SearchService.YouTubeMusic => "music.youtube.com", SearchService.Twitch => "www.twitch.tv", SearchService.Google => "www.google.com", _ => "open.spotify.com" };
             Assert.Equal("https", uri!.Scheme);

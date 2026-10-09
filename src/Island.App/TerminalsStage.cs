@@ -288,7 +288,7 @@ internal sealed class TerminalsStage(SelfTestReport report, TimeSpan hangLimit, 
         c.HandleText("h");
         await Task.Delay(200);
         var tiles = rt.Search?.TileCount ?? -1;
-        var services = SearchServices.Tiles([], "sh").Count;
+        var services = SearchServices.Tiles("sh").Count;
         c.HandleKey(0x1B); // Esc clears the text
         await Task.Delay(120);
         c.HandleKey(0x1B); // and leaves search

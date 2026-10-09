@@ -198,7 +198,8 @@ internal sealed class ContentsLayer : Canvas
             if (item.IsPlus)
             {
                 plusDrawn = true;
-                Add(tile, x + _visiblePicks * LookConstants.WidthItemPitch, top, LookConstants.ItemSize, LookConstants.ItemSize);
+                // Never through the entrance blur (Dan, 1.0.1): its thin white lines looked thicker while drawn through the effect and thinner the frame it was taken off, about half a second in.
+                Add(tile, x + _visiblePicks * LookConstants.WidthItemPitch, top, LookConstants.ItemSize, LookConstants.ItemSize, blurs: false);
             }
             else
             {
@@ -568,9 +569,9 @@ internal sealed class ContentsLayer : Canvas
         ApplySelection();
     }
 
-    private void Add(FrameworkElement content, double x, double y, double w, double h)
+    private void Add(FrameworkElement content, double x, double y, double w, double h, bool blurs = true)
     {
-        var reveal = new Reveal(content, w, h);
+        var reveal = new Reveal(content, w, h, blurs);
         SetLeft(reveal.Host, x);
         SetTop(reveal.Host, y);
         Children.Add(reveal.Host);
@@ -762,8 +763,11 @@ internal sealed class ContentsLayer : Canvas
         private readonly ScaleTransform _scale = new();
         private readonly TranslateTransform _rise = new();
 
-        public Reveal(FrameworkElement content, double width, double height)
+        private readonly bool _blurs;
+
+        public Reveal(FrameworkElement content, double width, double height, bool blurs = true)
         {
+            _blurs = blurs;
             Host = new Grid { Width = width, Height = height, Background = null };
             Host.Children.Add(content);
             var group = new TransformGroup();
@@ -780,7 +784,7 @@ internal sealed class ContentsLayer : Canvas
             Host.Opacity = Math.Clamp(p.Opacity, 0, 1);
             _scale.ScaleX = _scale.ScaleY = p.Scale;
             _rise.Y = p.Rise;
-            Host.Effect = p.BlurRadius > 0.05 ? Units.Blur(p.BlurRadius) : null;
+            Host.Effect = _blurs && p.BlurRadius > 0.05 ? Units.Blur(p.BlurRadius) : null;
         }
     }
 }

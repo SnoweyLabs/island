@@ -25,12 +25,13 @@ public class FirstStartTests
     [Fact]
     public void The_Steps_Are_The_Five_Of_The_Chosen_Preview_With_The_Practice_After_The_Key()
     {
-        Assert.Equal([SetupStep.Welcome, SetupStep.Key, SetupStep.Practice, SetupStep.Pages, SetupStep.OnTheIsland, SetupStep.Mode], FirstStart.Steps.Select(s => s.Step)); // the practice is Dan's tutorial (WORK-ORDER-13)
+        Assert.Equal([SetupStep.Welcome, SetupStep.Key, SetupStep.Practice, SetupStep.Pages, SetupStep.OnTheIsland, SetupStep.Addon, SetupStep.Mode], FirstStart.Steps.Select(s => s.Step)); // the practice is Dan's tutorial (WORK-ORDER-13)
         Assert.Equal("Welcome to Island", FirstStart.Steps[0].Title);
         Assert.Equal("Choose your key", FirstStart.Steps[1].Title);
         Assert.Equal("Try it out", FirstStart.Steps[2].Title);
-        Assert.Equal("When should it show up?", FirstStart.Steps[5].Title);
-        Assert.Equal(["Start", "Continue", "Continue", "Continue", "Continue", "Done"], Enumerable.Range(0, 6).Select(FirstStart.ButtonText));
+        Assert.Equal("Your browser tabs", FirstStart.Steps[5].Title); // the Chrome step, Dan's of 2026-10-09 (version 1.0.1)
+        Assert.Equal("When should it show up?", FirstStart.Steps[6].Title);
+        Assert.Equal(["Start", "Continue", "Continue", "Continue", "Continue", "Continue", "Done"], Enumerable.Range(0, 7).Select(FirstStart.ButtonText));
     }
 
     [Fact]

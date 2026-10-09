@@ -187,7 +187,7 @@ public class KeyboardTests
                 var view = fixture.NewView(setup);
                 Tree.Layout(view, 1920, 1080);
                 var steps = Tree.Of<Button>(view).Count(b => Tree.FocusKeyOf(b)?.StartsWith("step:", StringComparison.Ordinal) == true);
-                Assert.Equal(setup ? 6 : 8, steps); // five until WORK-ORDER-13 added the step Try it
+                Assert.Equal(setup ? 7 : 8, steps); // five until WORK-ORDER-13 added the step Try it, six until Dan's Chrome step (version 1.0.1)
             }
         });
     }

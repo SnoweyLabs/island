@@ -10,6 +10,9 @@ public enum SetupStep
     Practice,
     Pages,
     OnTheIsland,
+
+    /// <summary>The optional Chrome add-on, how to load it by hand (Dan, 2026-10-09, version 1.0.1): before the mode, skipped with Continue.</summary>
+    Addon,
     Mode,
 }
 
@@ -44,6 +47,7 @@ public static class FirstStart
         new(SetupStep.Practice, "Try it", "Try it out", "Press the keys and see what the island does. Nothing is opened, added or removed while you practise, and you can skip any step."),
         new(SetupStep.Pages, "Your pages", "Your pages", "Each page has its own colour. Rename them, recolour them, or add your own."),
         new(SetupStep.OnTheIsland, "On the island", "What goes on the island", "A few things are picked for you. Tap to switch any of them off. You can add more later with the + button."),
+        new(SetupStep.Addon, "Chrome", "Your browser tabs", "Optional. With the free Island add-on for Chrome, the island also sees your tabs and what plays in them. If you do not use Chrome, press Continue."),
         new(SetupStep.Mode, "Mode", "When should it show up?", "Pick how the island behaves while you play or work. You can switch at any time."),
     ];
 

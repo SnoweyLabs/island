@@ -23,11 +23,6 @@ internal sealed class MediaPage
         _store = store;
     }
 
-    private readonly List<string> _played = [];
-
-    /// <summary>The services that have played since the app started, the latest last, by the names the line uses ("YouTube", "Spotify"). Search offers its last tile for them.</summary>
-    public IReadOnlyList<string> PlayedServices => _played;
-
     /// <summary>What is playing now; null shows the selected pick as other pages do.</summary>
     public NowPlayingView? View { get; private set; }
 
@@ -43,12 +38,6 @@ internal sealed class MediaPage
         _lastPoll = now;
         var policy = NowPlayingPolicy.ForMediaPagePicks(_store().ForPage(PageIds.Media));
         var view = _nowPlaying.Update(now, _world.Media.Sessions, _world.Tabs.Tabs, _world.Tabs.Connected, policy);
-        if (view is { IsPaused: false } && !view.IsBrowserSession && (_played.Count == 0 || _played[^1] != view.Where))
-        {
-            _played.RemoveAll(p => p == view.Where);
-            _played.Add(view.Where);
-        }
-
         if (Equals(view, View)) return;
         View = view;
         Changed?.Invoke();

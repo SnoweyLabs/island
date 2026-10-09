@@ -66,7 +66,7 @@ public class TutorialTests
     public void The_Practice_Is_A_Step_Of_The_First_Start_Right_After_The_Key()
     {
         var steps = FirstStart.Steps.Select(s => s.Step).ToList();
-        Assert.Equal([SetupStep.Welcome, SetupStep.Key, SetupStep.Practice, SetupStep.Pages, SetupStep.OnTheIsland, SetupStep.Mode], steps);
+        Assert.Equal([SetupStep.Welcome, SetupStep.Key, SetupStep.Practice, SetupStep.Pages, SetupStep.OnTheIsland, SetupStep.Addon, SetupStep.Mode], steps);
         Assert.Equal("Done", FirstStart.ButtonText(FirstStart.Steps.Count - 1));
         Assert.Equal("Continue", FirstStart.ButtonText(2));
     }

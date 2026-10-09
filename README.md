@@ -23,10 +23,11 @@ There are no automatic updates: Island never contacts the internet. To update, d
 ## First steps
 
 - **Ctrl+Q** brings the island and hides it again. You can choose another key in Settings → Your key.
-- The island has pages: Media, Folders, Apps, Vibe coding, Browser and Terminals. **Tab** goes to the next page, **Shift+Tab** to the one before. A page can also have a key of its own.
+- The island has pages: Media, Folders, Apps, Vibe coding, Browser and Terminals. **Tab** goes to the next page, **Shift+Tab** to the one before, and **1** to **9** open the pages in their order. Drag a page by its handle in Settings → Your pages to change the order. A page can also have a key of its own.
 - **Left** and **Right** move along the row; **Enter** does what a click does: it starts a program, opens a folder or a website, or brings its window to the front.
 - **Down** opens a second row with what is open now. **Shift+Enter** there adds the thing to the page. **Up** goes back.
 - **Space** plays or pauses on the Media page. **Delete**, then **Delete** again, takes the selected thing off the island (it closes nothing). **Esc** closes the second row first, then the island.
+- **Search:** start typing while the island is open. The things that match come first, then three more: search on YouTube, on Google, or on this computer (File Explorer's search, for files and folders).
 - **Adding things:** the **+** on the island, or Settings → What goes on the island → **Add…** for a program, a folder, a website or a file.
 - **Settings** opens from Island's icon in the taskbar's notification area. The first start walks you through a short setup with a little practice on the real island. You can do it again from Settings → General → **Run the setup again**.
 
@@ -45,7 +46,7 @@ Before the first change Island saves a copy of the file as it was, beside it. It
 
 Island works without it; then websites on the island are shortcuts that open in your browser. With the add-on, Island can also see your browser tabs: which sites are open and which one is playing, switch to a tab, and close it.
 
-The add-on is not in the Chrome Web Store. To load it by hand:
+The add-on is not in the Chrome Web Store. The first start shows how to load it (the step Chrome); to do it later, by hand:
 
 1. In Island, open Settings → General and press **Open the add-on folder**.
 2. In Chrome, go to `chrome://extensions` and switch on **Developer mode** (top right).

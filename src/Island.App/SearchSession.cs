@@ -17,18 +17,16 @@ internal sealed class SearchSession
 {
     private readonly IslandController _controller;
     private readonly Func<IReadOnlyList<SearchEntry>> _entries;
-    private readonly Func<IReadOnlyList<string>> _played;
     private readonly Action<SearchEntry> _activate;
     private readonly Action<SearchServiceTile, string> _activateService;
     private SearchState _state = SearchState.Closed;
     private IReadOnlyList<SearchEntry> _matches = [];
     private IReadOnlyList<SearchServiceTile> _services = [];
 
-    public SearchSession(IslandController controller, Func<IReadOnlyList<SearchEntry>> entries, Func<IReadOnlyList<string>> played, Action<SearchEntry> activate, Action<SearchServiceTile, string> activateService)
+    public SearchSession(IslandController controller, Func<IReadOnlyList<SearchEntry>> entries, Action<SearchEntry> activate, Action<SearchServiceTile, string> activateService)
     {
         _controller = controller;
         _entries = entries;
-        _played = played;
         _activate = activate;
         _activateService = activateService;
     }
@@ -150,7 +148,7 @@ internal sealed class SearchSession
         var byKey = entries.GroupBy(e => e.Key).ToDictionary(g => g.Key, g => g.First());
         var ranked = SearchMatch.Rank(entries.Select(e => new SearchCandidate(e.Name, e.Key, e.IsPick, e.IsClosed)), _state.Text);
         _matches = [.. ranked.Select(c => byKey[c.Key])];
-        _services = SearchServices.Tiles(_played(), _state.Text);
+        _services = SearchServices.Tiles(_state.Text);
         _state = _state with { Selected = 0, TileCount = _matches.Count + _services.Count };
 
         var width = SearchLayout.Width(_state.Text.Length, _state.TileCount);

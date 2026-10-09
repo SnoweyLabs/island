@@ -5,8 +5,8 @@
 
 #define AppName "Island"
 ; The version shown in Windows Settings and on the release; InstallerScriptTests checks it against Directory.Build.props.
-#define AppVersion "1.0.0"
-#define AppFileVersion "1.0.0.0"
+#define AppVersion "1.0.1"
+#define AppFileVersion "1.0.1.0"
 #define AppPublisher "SnoweyLabs"
 #define AppExe "Island.App.exe"
 

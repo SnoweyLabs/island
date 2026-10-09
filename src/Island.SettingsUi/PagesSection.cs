@@ -21,9 +21,11 @@ internal static class PagesSection
         var stack = new StackPanel();
         var card = new GlassCard();
 
+        var rows = new List<FrameworkElement>(); // the pages' rows in the card, in their order: where a dragged page would land
         foreach (var page in session.Pages.Pages)
         {
-            card.Add(PageRow(host, page), tight: false);
+            card.Add(PageRow(host, page, rows), tight: false);
+            rows.Add((FrameworkElement)card.Rows.Children[^1]);
             if (host.OpenPanel == page.Id) card.Add(ColourPanel(host, page), tight: true);
         }
 
@@ -41,7 +43,7 @@ internal static class PagesSection
         return stack;
     }
 
-    private static UIElement PageRow(ISectionHost host, CorePage page)
+    private static UIElement PageRow(ISectionHost host, CorePage page, IReadOnlyList<FrameworkElement> rows)
     {
         var session = host.Session;
         var id = page.Id;
@@ -68,8 +70,12 @@ internal static class PagesSection
         text.Children.Add(name);
         text.Children.Add(Look.Label(SubText(session, page), Look.SmallSize, brush: Look.Sub));
 
+        var lead = new StackPanel { Orientation = Orientation.Horizontal, VerticalAlignment = VerticalAlignment.Center };
+        lead.Children.Add(Grip(host, page, rows));
+        lead.Children.Add(dot);
+
         Grid.SetColumn(text, 1);
-        row.Children.Add(dot);
+        row.Children.Add(lead);
         row.Children.Add(text);
 
         if (!page.IsBuiltIn)
@@ -80,6 +86,97 @@ internal static class PagesSection
         }
 
         return row;
+    }
+
+    // ---- Order (Dan, 2026-10-09, version 1.0.1) -----------------------------------------------------------------------------
+
+    public const string GripHint = "Drag to change the order. The first page is key 1.";
+
+    /// <summary>
+    /// The handle a page is dragged by: press, move over the other pages, let go, and the page takes that place; the island, Tab and the number keys follow.
+    /// With the keyboard, Up and Down on the handle move the page one place.
+    /// </summary>
+    private static Button Grip(ISectionHost host, CorePage page, IReadOnlyList<FrameworkElement> rows)
+    {
+        var id = page.Id;
+        var dots = new Canvas { Width = 10, Height = 16, IsHitTestVisible = false };
+        for (var r = 0; r < 3; r++)
+            for (var c = 0; c < 2; c++)
+            {
+                var dot = new System.Windows.Shapes.Ellipse { Width = 3, Height = 3, Fill = Look.Sub };
+                Canvas.SetLeft(dot, c * 6);
+                Canvas.SetTop(dot, r * 6 + 1);
+                dots.Children.Add(dot);
+            }
+
+        var grip = Parts.Flat(new Border { Padding = new Thickness(6, 4, 6, 4), Child = dots }, 8, () => { }, $"grip:{id}", $"Move the page {page.Name}: drag it, or press Up or Down");
+        grip.Cursor = Cursors.SizeNS;
+        grip.ToolTip = GripHint;
+        grip.Margin = new Thickness(-8, 0, 4, 0);
+
+        void MoveTo(int index)
+        {
+            host.Report(host.Session.MovePage(id, index));
+            host.Refresh($"grip:{id}");
+        }
+
+        int Here() => host.Session.Pages.Pages.ToList().FindIndex(p => p.Id == id);
+
+        grip.PreviewKeyDown += (_, e) =>
+        {
+            if (e.Key is not (Key.Up or Key.Down) || Keyboard.Modifiers != ModifierKeys.None) return;
+            e.Handled = true;
+            var here = Here();
+            if (here >= 0) MoveTo(here + (e.Key == Key.Up ? -1 : 1));
+        };
+
+        FrameworkElement? mine = null;
+        var target = -1;
+        void Mark(int index)
+        {
+            if (index == target) return;
+            target = index;
+            for (var i = 0; i < rows.Count; i++)
+                rows[i].SetCurrentValue(Border.BorderBrushProperty, i == index && rows[i] != mine ? Look.BrushOf(host.Accent) : Look.Line);
+        }
+
+        // Where the page would land: the number of the other pages whose middle is above the pointer.
+        int LandingAt(Point inCard) => rows.Where(r => r != mine).Count(r => r.TranslatePoint(new Point(0, r.ActualHeight / 2), (UIElement)rows[0].Parent).Y < inCard.Y);
+
+        grip.PreviewMouseLeftButtonDown += (_, e) =>
+        {
+            mine = rows.FirstOrDefault(r => r.IsAncestorOf(grip));
+            if (mine is null) return;
+            target = -1;
+            mine.Opacity = 0.55;
+            grip.CaptureMouse();
+            e.Handled = true;
+        };
+        grip.PreviewMouseMove += (_, e) =>
+        {
+            if (mine is null || !grip.IsMouseCaptured) return;
+            var at = LandingAt(e.GetPosition((UIElement)rows[0].Parent));
+            Mark(at < Here() ? at : at + 1); // the line goes on the row the page will push down
+        };
+        grip.PreviewMouseLeftButtonUp += (_, e) =>
+        {
+            if (mine is null) return;
+            var at = LandingAt(e.GetPosition((UIElement)rows[0].Parent));
+            mine.Opacity = 1;
+            mine = null;
+            Mark(-1);
+            grip.ReleaseMouseCapture();
+            e.Handled = true;
+            if (at != Here()) MoveTo(at);
+        };
+        grip.LostMouseCapture += (_, _) =>
+        {
+            if (mine is null) return; // let go elsewhere (Esc, another window): nothing moves
+            mine.Opacity = 1;
+            mine = null;
+            Mark(-1);
+        };
+        return grip;
     }
 
     private static string SubText(SettingsSession session, CorePage page) =>

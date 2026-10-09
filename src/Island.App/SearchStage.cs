@@ -39,10 +39,11 @@ internal sealed class SearchStage(SelfTestReport report, TimeSpan hangLimit, str
         c.HandleText("u");
         await Waiter.UntilAsync(() => m.SearchOpen && m.IsAtRest && rt.View.Search.FieldText == "tu", "search open with the text at rest", hangLimit, report);
         report.Check("typed text opens search and goes into the field", m.SearchOpen && rt.View.Search.FieldText == "tu", $"search open: {m.SearchOpen}");
-        report.Check("\"tu\" shows its two matches and Google's tile, Tunes selected", search.TileCount == 3 && search.Selected == 0 && rt.View.Search.Lines.Title == "Tunes" && rt.View.Search.TilesDrawn == 3,
+        // Dan's three tiles (version 1.0.1): YouTube, Google and this computer after the matches, always. Until then: the two matches and Google's tile.
+        report.Check("\"tu\" shows its two matches and the three tiles YouTube, Google and this computer, Tunes selected", search.TileCount == 5 && search.Selected == 0 && rt.View.Search.Lines.Title == "Tunes" && rt.View.Search.TilesDrawn == 5,
             $"{search.TileCount} tiles, the first named {rt.View.Search.Lines.Title}");
         report.Check("the text block says Enter opens it", rt.View.Search.Lines.Subtitle == "Enter to open", rt.View.Search.Lines.Subtitle);
-        report.Check("the capsule's width follows the search layout", Math.Abs(m.Width.Target - SearchLayout.Width(2, 3)) < 0.01, $"{m.Width.Target:0.#} wide");
+        report.Check("the capsule's width follows the search layout", Math.Abs(m.Width.Target - SearchLayout.Width(2, 5)) < 0.01, $"{m.Width.Target:0.#} wide");
 
         // Right and Left move the selection.
         c.HandleKey(0x27);

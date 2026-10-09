@@ -17,6 +17,9 @@ public enum SettingsSection
     /// <summary>Only in the setup (the first start): the orb and the greeting.</summary>
     Welcome,
 
+    /// <summary>Only in the setup: the optional Chrome add-on and how to load it by hand (Dan, version 1.0.1).</summary>
+    Addon,
+
     /// <summary>Only in the setup: try the keys on the real island (Dan's tutorial, WORK-ORDER-13).</summary>
     Practice,
 }
