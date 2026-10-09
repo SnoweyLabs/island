@@ -1,0 +1,16 @@
+bin/
+obj/
+.vs/
+*.user
+.screen-lock
+.worktrees/
+dist/
+
+ship/app/
+ship/*.msix
+
+# The workshop's own scripts for its copies under dist/ (WORK-ORDER-14 section 1): kept on disk, not published.
+/run.cmd
+/stop.cmd
+/copy-next.cmd
+ship/installer/out/

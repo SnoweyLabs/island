@@ -1,0 +1,71 @@
+# C2 front — report
+
+Branch `c2-front`, made from `6033be4`. Sections built: WORK-ORDER-6.md section 2 "It looks before it shows" and the whole table plus the notice fallback of WORK-ORDER-7.md section 1. Not built (as told): the mode mark, the tray menu, the settings screen, the pill.
+
+## 1. What was built
+
+`src/Island.Core/Front/` (plain net10.0, no Windows call, namespace `Island.Core`)
+- `FrontTypes.cs` — enums `FrontState` (Clear, FullscreenProgram, ExclusiveFullscreen, Presentation), `Appearer` (Island, Pill, Notice), `ShowOrigin` (Asked, ByItself), `Mode` (Focus, Vibe, DND), `ShowAnswer` (StayAway = 0, Show). StayAway is the zero value so an unset answer never shows anything.
+- `ShowDecision.cs` — `ShowDecision.Decide(front, thing, origin, mode)`: the one pure decision, the complete table of WO7 section 1. WO6 section 2's narrow table is its Vibe column. Any enum value outside the lists answers StayAway.
+- `NeverOverList.cs` — `NeverOverEntry(Name, ExeFileName)` and the immutable `NeverOverList` (`With`, `Without`, `Contains`, `From`, `Apply(state, exeFileName)`). A FullscreenProgram whose executable is on the list becomes ExclusiveFullscreen; nothing else changes. Entries with a path (`\`, `/`, `:`), an empty name or an empty file name are refused. Matching is by file name, case ignored.
+- `FrontClassifier.cs` — `FrontRect`, `FrontWindowFacts`, `FrontClassifier.Classify(facts)` (rectangle equals the screen's full rectangle AND no title bar AND no sizing border; never the desktop or shell, the taskbars, `Progman`/`WorkerW`/`SysListView32`/`Flip3D`, a tool window, or an island window; empty rectangles give Clear), `FromNotificationState(int)` (3 gives ExclusiveFullscreen, 4 gives Presentation, everything else null), and `Combine(notificationState, facts)` (Windows' hard states win, otherwise the rectangle). Windows' "busy" (2) is not used.
+- `NoticeFallback.cs` — `NoticeWait` (immutable state: Idle or Waiting, arrival time, sound-played flag), `NoticeFacts(Mode, Front, SecondScreenWithoutFullscreen, Now)`, `NoticeStep(State, Action)`, `NoticeFallback.Next(state, facts)`. Order: stale (age >= 10 min) drops; the table allows it gives `ShowHere`; otherwise DND drops; otherwise a second screen with no fullscreen program gives `ShowOnOtherScreen`; otherwise Focus plays one sound (`PlaySound`, once per notice); otherwise `Wait`. `NeedsTimer` is true exactly while a notice waits; constants `StaleAfter` = 10 min and `RecheckEvery` = 2 s (both Claude's, from WO7). No timer, no sound, no screen inside it.
+
+`src/Island.Sources.Front/` (net10.0-windows10.0.19041.0, read-only, no window, no `Outside` file because it has no outside action)
+- `FrontNative.cs` — the P/Invokes (internal).
+- `FrontReader.cs` — static `FrontReader`: `ReadForeground(isIslandWindow?)`; `Read(window, screen, notificationState, isIslandWindow?)` (a function of the window and the rectangle it is handed, plus the notification state it is handed, so a self-test can hand it a test window); `ClassifyWindow(window, screen, isIslandWindow?)` (rectangle test alone, no Windows state); `ReadNotificationState()`; `ScreenOf(window)`; `ForegroundWindow()` (a handle only). Every call catches everything and gives Clear (or null). `FrontReading(State, ExeFileName)`: the executable file name (never a path) is read only when the state is FullscreenProgram, for the never-over list.
+
+`src/Island.Sources.Front.Smoke/` — console, prints only the state kind, yes/no answers and no names (see section 2).
+
+`tests/Island.Tests/Front/` — `ShowDecisionTests`, `FrontReadingTests`, `ModeTableTests`, `NoticeFallbackTests` (all the named tests of the brief, plus a few extra).
+
+APIs confirmed on Microsoft Learn on 6 Oct 2026 (signature, DLL, constants): `SHQueryUserNotificationState` and `QUERY_USER_NOTIFICATION_STATE` (1 to 7; 3 = D3D exclusive, 4 = presentation), `GetForegroundWindow`, `GetWindowRect` (screen coordinates, right and bottom exclusive, DPI-virtualised), `GetWindowLongPtrW` (`GWL_STYLE` -16, `GWL_EXSTYLE` -20), `GetClassNameW`, `GetDesktopWindow`, `GetShellWindow`, `MonitorFromRect` (`MONITOR_DEFAULTTONEAREST`; the page lists no number, the value 2 comes from the MonitorFromPoint page in the research and is the same flag family), `GetMonitorInfoW` and `MONITORINFO` (cbSize, rcMonitor, rcWork, dwFlags), `GetWindowThreadProcessId`, `OpenProcess`, `QueryFullProcessImageNameW`, `PROCESS_QUERY_LIMITED_INFORMATION` 0x1000, `WS_DLGFRAME` 0x00400000, `WS_THICKFRAME` 0x00040000, `WS_EX_TOOLWINDOW` 0x80, `WS_EX_WINDOWEDGE` 0x100. `CloseHandle` (kernel32) was used without opening its page. Chromium's `fullscreen_win.cc` and PowerToys' `WindowsInteropHelper.cs` and `window.h` were re-opened and the logic re-implemented, nothing pasted. No licence text is needed.
+
+## 2. Commands and results
+
+- `dotnet test D:\...\c2-front\tests\Island.Tests` : Passed 604, Failed 0, Skipped 0 (502 existing + 102 new).
+- Filter on my four classes: Passed 102, Failed 0.
+- `dotnet build src\Island.Sources.Front.Smoke` (builds Core and Front too): 0 warnings, 0 errors. `dotnet build src\Island.Sources.Front -c Release`: 0 warnings, 0 errors.
+- Smoke console, run once on this laptop (Dan's real desktop): `frontState=Clear`, `badInputAnswersClear=True`, `foregroundWindowFound=True`, `screenRead=True`, `exeNameRead=False` (expected: it is read only for a fullscreen program), `notificationStateRead=True`, `notificationStateIsHard=False`, `ownWindowAnswersClear=True`, `mismatchedScreenAnswersClear=True`, `stateIsDefined=True`, exit 0. No name, class or rectangle is printed.
+- Mutation check by hand (each mutant reverted with `git checkout`): the Focus notice rule removed, DND asked-over-Clear changed, the exclusive line removed, Vibe rule changed, island-window exclusion removed, system-class exclusion removed, rectangle test loosened, presentation mapping removed, stale boundary changed, sound outside Focus, DND drop removed. Every mutant made at least one test fail.
+- `Island.App` was never started, no window shown, nothing written outside the worktree, no registry, no sound.
+
+## 3. What is proven, and by which test
+
+- The full table, every cell, for all three things and both origins (72 cases): `ModeTableTests.Every_Cell_Of_The_Table`; its row count is checked by `ModeTableTests.The_Table_Above_Has_Every_Cell`.
+- WO6's narrow table (Vibe column, island): `ShowDecisionTests.Exclusive_Fullscreen_Never_Shows` (also all modes, things, origins), `Fullscreen_Program_Shows_Only_When_Asked`, `Presentation_Shows_Only_When_Asked`, `Clear_Always_Shows`. Garbage enum values answer StayAway: `ShowDecisionTests.A_Value_Outside_The_Lists_Answers_StayAway`.
+- Never-over list: `ModeTableTests.Never_Over_List_Counts_As_Exclusive`, and `The_List_Keeps_Names_And_File_Names_Never_Paths`.
+- Classification: `FrontReadingTests.A_Window_Equal_To_Its_Screen_Without_A_Frame_Is_Fullscreen` (also a screen with negative coordinates, and "busy" is not an input), `A_Maximised_Window_With_A_Frame_Is_Not`, `Desktop_And_Taskbar_Are_Never_Fullscreen` (8 class names, case ignored), `Desktop_And_Shell_Handles_Are_Never_Fullscreen`, `The_Islands_Own_Windows_Are_Never_Fullscreen`, `Bad_Input_Gives_Clear` (null, empty, inverted and extreme rectangles), `Windows_Own_Answer_Maps_To_Hard_States_Only`, `Windows_Hard_States_Win_Over_The_Rectangle`.
+- Fallback: `NoticeFallbackTests.Second_Screen_Then_Sound_Then_Later`, `No_Sound_Outside_Focus`, `In_DND_A_Notice_Is_Dropped`, `A_Stale_Notice_Is_Dropped`, `Nothing_Waiting_Means_No_Timer`, plus `The_Table_Allows_It_At_Once_Without_Any_Fallback` and `An_Unknown_Mode_Drops_The_Notice_Silently`.
+- The reader never throws on a bad handle, a missing screen or no foreground: smoke counts `badInputAnswersClear=True`, `ownWindowAnswersClear=True`, `mismatchedScreenAnswersClear=True` (these are real Windows calls, but only on the one laptop, once).
+
+## 4. What is not proven
+
+- Nothing was tried over a real game, a fullscreen film, a PowerPoint slideshow, Presentation Settings or a second screen. The reader was run only with an ordinary window in front (answer Clear). That `SHQueryUserNotificationState` answers 3 or 4 where documented, and that a borderless game really has no title bar and no sizing border bit, is from the documentation and Chromium's test, not observed.
+- The Smoke console is not DPI-aware, so on a scaled screen `GetWindowRect` and the monitor rectangle are both virtualised; they agree with each other but the proof of an exact rectangle match on a scaled screen belongs to Island.App (per-monitor aware) and a person's eyes.
+- The self-test stage "a borderless test window of its own, handed its own rectangle as its screen, answers FullscreenProgram" cannot be built by me (it needs a window). The pure half is proven (`A_Window_Equal_To_Its_Screen_Without_A_Frame_Is_Fullscreen`); the main session builds the window part.
+- `WS_EX_WINDOWEDGE` is deliberately NOT tested, unlike Chromium: a borderless game window that carries that extended style would otherwise be missed, and missing a fullscreen game is the worse mistake. A tool window (`WS_EX_TOOLWINDOW`) is excluded as Chromium does. Unlike Chromium, any monitor counts, not only the primary one.
+- `WorkerW` is excluded by class alone (PowerToys excludes it only when it hosts the desktop view); no game or video uses that class, so this is cautious.
+- A cloaked (hidden UWP) foreground window is not specially handled (`DWMWA_CLOAKED`); a cloaked window is not normally the foreground.
+- The first evaluation of the notice fallback and the 2-second asking are only a function; no timer was ever run.
+- Not decided anywhere in the documents, so taken cautiously: a notice that arrives while another waits replaces it (`NoticeWait.Arrive`); "exactly 10 minutes old" counts as stale; the sound is played once per notice; a notice shown on the other screen or here ends the waiting at once.
+
+## 5. Requests to the joints and the main session
+
+- `Mode` is a new public enum in `Island.Core`. `Island.App/IslandPanels.cs` has a private nested `enum Mode`; it shadows ours inside that class and compiles, but rename one of them if it confuses. The brief named the type `Mode`, so I kept it.
+- Settings: `SettingsTests.Mode_Round_Trips_And_Defaults_To_Vibe` and the stored never-over list need `Settings` to carry a `Mode` (default Vibe) and a list of `NeverOverEntry` (name plus exe file name). I changed no existing file.
+- `OutsideKind.PlaySound` exists already; the sound is not in this piece.
+- `ModeTableTests.A_Visible_Pill_Leaves_When_The_Table_Says_Stay_Away` (not mine). The call the main session should make, in the app's pill code, on every foreground change and every mode change while the pill or notice is visible: `ShowDecision.Decide(neverOverList.Apply(reading.State, reading.ExeFileName), Appearer.Pill /* or Notice */, ShowOrigin.ByItself, mode)`; on `StayAway`, start the leaving springs. The test: fake a state source returning Clear, show the pill, switch the fake to FullscreenProgram (Vibe) and to Presentation (Focus), and to anything with mode DND; assert the pill machine receives the leave once, and that going back to Clear does not bring it back by itself. A pill shown because it was asked (a click that grew it) uses `ShowOrigin.Asked`.
+- Joint note: for a notice that waits, the "foreground window changed" event of the window reader should also call `NoticeFallback.Next` for the waiting notice, besides the 2-second timer; the timer exists only while `NeedsTimer` is true.
+
+## 6. How to wire it into the app
+
+- Add both new projects to `Island.sln` (`Island.Sources.Front`, optionally `Island.Sources.Front.Smoke`); `Island.App` references `Island.Sources.Front`.
+- Reading, once, at the moment something is about to appear (key press, ball start, pill or notice start), off the drawing thread if the call ever costs a frame (it is about ten quick Windows calls and no waiting):
+  `var reading = FrontReader.ReadForeground(h => ownWindowHandles.Contains(h));`
+  `ownWindowHandles` must hold the capsule window, the shadow window, the glass layer, AND the settings window. The settings screen can fill a whole screen without a frame and would otherwise count as a fullscreen program.
+  `var state = neverOver.Apply(reading.State, reading.ExeFileName);`
+  `var answer = ShowDecision.Decide(state, Appearer.Island, ShowOrigin.Asked /* key or click */ or ShowOrigin.ByItself /* start-up, pill, notice */, settings.Mode);`
+  StayAway after a key press: the island does not appear; log one line with the kind of reason only. A pick's key still jumps (WO6 section 4).
+- Under `--selftest` use a scripted `Clear` everywhere except the one stage that tests the reading. That stage, for a test window `w` of the self-test's own and its own rectangle `r`: `FrontReader.ClassifyWindow(w, r)` must be `FullscreenProgram` and `FrontReader.ClassifyWindow(w, realScreenRect)` must not; record `FrontReader.ReadNotificationState()` as a kind only and never assert it (use `ClassifyWindow`, not `Read`, so a game on Dan's screen cannot fail the stage; do not pass `isIslandWindow` for that window).
+- Notice fallback: keep one `NoticeWait` per app. On arrival `state = NoticeWait.Arrive(now)` and call `NoticeFallback.Next(state, new NoticeFacts(mode, frontOfThePrimaryAppearScreen, secondScreenWithoutFullscreen, now))` at once; do what `Action` says (`ShowHere`, `ShowOnOtherScreen`, `PlaySound` through the `Outside` door behind `OutsideGate.PlaySound`, `Wait`, `Drop`), store `step.State`, and run a 2-second timer (`NoticeFallback.RecheckEvery`) only while `step.NeedsTimer`; stop it as soon as it is false. `secondScreenWithoutFullscreen` comes from C1's screen list. This piece does not read "what is on another screen": `FrontReader` knows only the one foreground window. If the foreground window is on the second screen, `ScreenOf(foreground)` says so; for a fullscreen program on the other screen while another window has focus, nothing in this piece looks (a window enumeration would be needed; not built, not asked). The cautious reading: treat a second screen as free only when the foreground window is not fullscreen on it. Threading: `FrontReader` is stateless and may be called from any thread; the Core types are immutable.

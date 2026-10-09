@@ -1,0 +1,17 @@
+<Project>
+
+  <!-- The one place of the app's version (WORK-ORDER-8 section 1): four parts, Major.Minor.Build.Revision, the last 0 because the Store keeps it for itself
+       (learn.microsoft.com, "App package requirements for MSIX app", package version numbering). The package manifest carries the same number; ShipGuardTests
+       check that they agree. The add-on has its own version in extension/manifest.json. -->
+  <PropertyGroup>
+    <Version>1.0.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <Company>SnoweyLabs</Company>
+    <Product>Island</Product>
+    <Copyright>SnoweyLabs</Copyright>
+    <Authors>SnoweyLabs</Authors>
+  </PropertyGroup>
+
+</Project>

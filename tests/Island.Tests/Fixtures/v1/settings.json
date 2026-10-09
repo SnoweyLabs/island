@@ -1,0 +1,27 @@
+{
+  "hotkeys": {
+    "showHide": "Ctrl\u002BAlt\u002BK",
+    "media": "Ctrl\u002BAlt\u002B1",
+    "folders": "",
+    "apps": "",
+    "vibe": "",
+    "browser": "",
+    "modeNext": ""
+  },
+  "idleSeconds": 12,
+  "glass": "darker",
+  "pickKeys": {
+    "program:alpha": "Ctrl\u002BAlt\u002BA",
+    "scene:scene-1": "Ctrl\u002BAlt\u002BE"
+  },
+  "mode": "dnd",
+  "showPill": false,
+  "noticeSeconds": 9,
+  "neverOver": [
+    {
+      "name": "Alpha Game",
+      "exe": "alpha-game.exe"
+    }
+  ],
+  "startWithWindows": false
+}

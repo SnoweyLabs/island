@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- ATTACK11 (WO11 sections 1 to 5): every test whose name starts with Defect_ fails because of a defect it names; the others pass and are the coverage statement. Not part of Island.sln. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.4" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The guards' own rules, so the attack runs the very same code over invented lines. -->
+    <Compile Include="..\Island.Tests\GuardRules.cs" Link="GuardRules.cs" />
+    <!-- The app's own file that joins the session book to the page: it uses only Island.Core types, so the real file is attacked, not a copy. -->
+    <Compile Include="..\..\src\Island.App\HelperSessions.cs" Link="HelperSessions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Island.Core\Island.Core.csproj" />
+    <ProjectReference Include="..\..\src\Island.Agents\Island.Agents.csproj" />
+    <ProjectReference Include="..\..\src\Island.Notify\Island.Notify.csproj" />
+  </ItemGroup>
+
+</Project>

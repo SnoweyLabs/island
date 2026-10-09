@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Island tabs",
+  "version": "1.1.0",
+  "description": "Tells the Island app on this computer which tabs are open and plays or pauses media tabs when asked. Talks to 127.0.0.1 only.",
+  "minimum_chrome_version": "116",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4NNPmVR8dWBe4nBH47JHoiA4kDPPN9otU9mojV3zth97jddmrcSswHlQEbtgnX2JGlcAYZnvWgs65sAIwnna32CiW5XIE6ttUoJPksqUtWDD+Se5NhGxG1ptOSnck6JWt4TGFHfRIhKwySAS5/f/TkPhZcgXVhl3e9cWhYZIsc771eGNedghpPQabOwjdJwUJyh58OconNm3BB8ghV+U1b/hJiz8RUQTt9ToG3sJIzOh36x1JBpOtFj2RlH0xYPziqn8DUjt084gQrI0Cmy5/F6+7eKUCCUaOSQIogFkopS1yCLz83tY1QsqyP8lOE9nqP5sDSDDTlg2DPiQI3KcHQIDAQAB",
+  "permissions": ["tabs", "favicon", "alarms", "storage", "scripting"],
+  "host_permissions": [
+    "http://127.0.0.1/*",
+    "https://www.youtube.com/*",
+    "https://music.youtube.com/*",
+    "https://www.twitch.tv/*",
+    "https://soundcloud.com/*",
+    "https://open.spotify.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://music.youtube.com/*",
+        "https://www.twitch.tv/*",
+        "https://soundcloud.com/*",
+        "https://open.spotify.com/*"
+      ],
+      "js": ["content/media-main.js"],
+      "world": "MAIN",
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://music.youtube.com/*",
+        "https://www.twitch.tv/*",
+        "https://soundcloud.com/*",
+        "https://open.spotify.com/*"
+      ],
+      "js": ["lib/sites.js", "lib/media.js", "content/media-relay.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

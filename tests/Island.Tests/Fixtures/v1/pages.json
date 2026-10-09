@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "pages": [
+    {
+      "id": "media",
+      "name": "Media",
+      "color": "#FF4055"
+    },
+    {
+      "id": "folders",
+      "name": "Folders",
+      "color": "#FFB81C"
+    },
+    {
+      "id": "apps",
+      "name": "Apps",
+      "color": "#1F6FFF"
+    },
+    {
+      "id": "vibe",
+      "name": "Vibe coding",
+      "color": "#19E6B3"
+    },
+    {
+      "id": "browser",
+      "name": "Browser",
+      "color": "#E9A0FF"
+    },
+    {
+      "id": "page-1",
+      "name": "Alpha pages",
+      "color": "#7CE04A"
+    }
+  ]
+}

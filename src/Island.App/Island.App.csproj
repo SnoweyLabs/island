@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+    <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
+    <ApplicationIcon>Island.ico</ApplicationIcon>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Using Remove="System.Windows.Forms" />
+    <Using Remove="System.Drawing" />
+    <ProjectReference Include="..\Island.Core\Island.Core.csproj" />
+    <ProjectReference Include="..\Island.Sources.Programs\Island.Sources.Programs.csproj" />
+    <ProjectReference Include="..\Island.Sources.Media\Island.Sources.Media.csproj" />
+    <ProjectReference Include="..\Island.Sources.Folders\Island.Sources.Folders.csproj" />
+    <ProjectReference Include="..\Island.Bridge\Island.Bridge.csproj" />
+    <ProjectReference Include="..\Island.SettingsUi\Island.SettingsUi.csproj" />
+    <ProjectReference Include="..\Island.Glass\Island.Glass.csproj" />
+    <ProjectReference Include="..\Island.Sources.Screens\Island.Sources.Screens.csproj" />
+    <ProjectReference Include="..\Island.Agents\Island.Agents.csproj" />
+    <ProjectReference Include="..\Island.Notify\Island.Notify.csproj" />
+    <ProjectReference Include="..\Island.Sources.Front\Island.Sources.Front.csproj" />
+  </ItemGroup>
+
+</Project>

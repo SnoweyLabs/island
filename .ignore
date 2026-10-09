@@ -1,0 +1,9 @@
+bin/
+obj/
+.vs/
+.worktrees/
+dist/
+
+ship/app/
+ship/*.msix
+ship/installer/out/

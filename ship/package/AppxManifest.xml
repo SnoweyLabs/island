@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Island's package manifest, written by hand from the manifest schema pages of Microsoft Learn (each page is named in ship/SOURCES.md, section 3).
+  The three identity values only the Store can give (the package's name, its publisher, the publisher's display name) are __FROM_PARTNER_CENTER__:
+  they are copied from Partner Center, "View app identity details", by the owner (ship/store/CE-FACI-TU-store.md). No tool may fill them in from the current user.
+  The package's version is the one of Directory.Build.props; its fourth part is 0 because the Store keeps it for itself.
+-->
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+  xmlns:uap7="http://schemas.microsoft.com/appx/manifest/uap/windows10/7"
+  xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
+  xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap uap10 rescap">
+
+  <Identity Name="__FROM_PARTNER_CENTER__" Publisher="__FROM_PARTNER_CENTER__" Version="1.0.0.0" ProcessorArchitecture="x64" />
+
+  <Properties>
+    <DisplayName>Island</DisplayName>
+    <PublisherDisplayName>__FROM_PARTNER_CENTER__</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+    <Description>A small island at the top of the screen for the programs, folders and sites you use all day.</Description>
+  </Properties>
+
+  <Resources>
+    <Resource Language="en-us" />
+  </Resources>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.19041.0" MaxVersionTested="10.0.19041.0" />
+  </Dependencies>
+
+  <Capabilities>
+    <!-- Reading which media is playing (Windows.Media.Control): a general-use capability. -->
+    <uap7:Capability Name="globalMediaControl" />
+    <!-- An ordinary desktop program, run with full rights: the global key, the tray icon, reading which windows are open (ship/store/full-rights-justification.md). -->
+    <rescap:Capability Name="runFullTrust" />
+  </Capabilities>
+
+  <Applications>
+    <Application Id="Island" Executable="Island.App.exe" uap10:RuntimeBehavior="packagedClassicApp" uap10:TrustLevel="mediumIL">
+      <uap:VisualElements
+        DisplayName="Island"
+        Description="A small island at the top of the screen for the programs, folders and sites you use all day."
+        BackgroundColor="transparent"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png" />
+      <Extensions>
+        <!-- Start with Windows when packaged: switched off here, asked for only when the person flips the switch in the settings. -->
+        <desktop:Extension Category="windows.startupTask" Executable="Island.App.exe" EntryPoint="Windows.FullTrustApplication">
+          <desktop:StartupTask TaskId="IslandStartup" Enabled="false" DisplayName="Island" />
+        </desktop:Extension>
+        <!-- The stable command name that runs the small program a coding agent's hook starts, from inside the package. -->
+        <uap3:Extension Category="windows.appExecutionAlias" Executable="Island.Notify.exe" EntryPoint="Windows.FullTrustApplication">
+          <uap3:AppExecutionAlias>
+            <desktop:ExecutionAlias Alias="Island.Notify.exe" />
+          </uap3:AppExecutionAlias>
+        </uap3:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+
+</Package>

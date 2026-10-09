@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "picks": [
+    {
+      "id": "program:alpha",
+      "kind": "program",
+      "name": "Alpha",
+      "page": "apps",
+      "exe": "alpha.exe"
+    },
+    {
+      "id": "folder:downloads",
+      "kind": "folder",
+      "name": "Downloads",
+      "page": "folders",
+      "folder": "Downloads"
+    },
+    {
+      "id": "site:alpha.example",
+      "kind": "site",
+      "name": "Alpha site",
+      "page": "browser",
+      "host": "alpha.example"
+    }
+  ]
+}

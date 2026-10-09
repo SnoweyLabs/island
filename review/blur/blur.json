@@ -1,0 +1,365 @@
+{
+  "tool": "BlurProbe",
+  "generated_utc": "2026-10-06T04:18:24Z",
+  "windows_build": "10.0.26200.0",
+  "display": {
+    "primary_px": "1920x1080",
+    "system_dpi": 96,
+    "remote_session": false,
+    "input_desktop_available": true
+  },
+  "windows_effects": {
+    "advanced_effects_enabled": true,
+    "energy_saver_status": "Disabled",
+    "note": "read only; nothing on this machine was changed"
+  },
+  "settings": {
+    "stripe_px": 20,
+    "blur_sigma_px": 8,
+    "probe_window_px": "700x220",
+    "capsule_px": "500x76 radius 38",
+    "ball_px": 30,
+    "sizes_are": "physical pixels (the probe is per-monitor-v2 DPI aware)",
+    "thresholds": {
+      "outside_sharp_max_nonpure_fraction": 0.002,
+      "inside_blurred_max_pure_fraction": 0.05,
+      "inside_flat_if_grey_range_below": 6,
+      "pure_pixel_tolerance": 8,
+      "inside_margin_capsule_px": 10,
+      "inside_margin_ball_px": 4,
+      "outside_margin_px": 4
+    }
+  },
+  "compositor": "created",
+  "pattern_window": {
+    "client_px": "1100x420",
+    "foreground_after_ensure": true,
+    "focus_after_ensure": true
+  },
+  "control": {
+    "taken": true,
+    "reason": "stable",
+    "frame_px_left_grey_and_not_photographed": 12,
+    "nonpure_fraction": 0,
+    "gray_min": 0,
+    "gray_max": 255,
+    "capture_exact": true
+  },
+  "methods": {
+    "host_backdrop_brush": {
+      "tree_created": true,
+      "capsule_capture_taken": true,
+      "capsule_capture_reason": "stable",
+      "capsule_capture_settle_tries": 2,
+      "capsule": {
+        "inside": {
+          "pixels": 26216,
+          "gray_min": 0,
+          "gray_max": 0,
+          "gray_mean": 0,
+          "pure_fraction": 1,
+          "nonpure_fraction": 0,
+          "max_colour_spread": 0
+        },
+        "inside_class": "flat",
+        "blurred_inside": false,
+        "outside": {
+          "pixels": 109176,
+          "gray_min": 0,
+          "gray_max": 255,
+          "gray_mean": 132.3,
+          "pure_fraction": 1,
+          "nonpure_fraction": 0,
+          "max_colour_spread": 0
+        },
+        "sharp_outside": true,
+        "inside_mean_abs_diff_vs_bare_pattern": 129.33
+      },
+      "live": {
+        "capture_taken": true,
+        "capture_reason": "stable",
+        "inside_mean_abs_diff": 0,
+        "outside_mean_abs_diff_sanity": 127.5,
+        "inside_changed": false,
+        "rms_if_not_moved": 0,
+        "rms_if_moved_left_by_half_stripe": 0,
+        "rms_if_moved_right_by_half_stripe": 0,
+        "inside_tracks_the_pattern": true,
+        "inside_after_shift": {
+          "pixels": 26216,
+          "gray_min": 0,
+          "gray_max": 0,
+          "gray_mean": 0,
+          "pure_fraction": 1,
+          "nonpure_fraction": 0,
+          "max_colour_spread": 0
+        },
+        "outside_after_shift": {
+          "pixels": 109176,
+          "gray_min": 0,
+          "gray_max": 255,
+          "gray_mean": 127.5,
+          "pure_fraction": 1,
+          "nonpure_fraction": 0,
+          "max_colour_spread": 0
+        },
+        "live": false
+      },
+      "ball": {
+        "capture_taken": true,
+        "capture_reason": "stable",
+        "inside": {
+          "pixels": 384,
+          "gray_min": 0,
+          "gray_max": 0,
+          "gray_mean": 0,
+          "pure_fraction": 1,
+          "nonpure_fraction": 0,
+          "max_colour_spread": 0
+        },
+        "inside_class": "flat",
+        "blurred_inside": false,
+        "outside": {
+          "pixels": 149212,
+          "gray_min": 0,
+          "gray_max": 255,
+          "gray_mean": 127.5,
+          "pure_fraction": 1,
+          "nonpure_fraction": 0,
+          "max_colour_spread": 0
+        },
+        "sharp_outside": true,
+        "confined": false
+      },
+      "focus": {
+        "pattern_in_front_and_focused_at_every_capture": true,
+        "probe_activation_messages": 0,
+        "probe_focus_messages": 0,
+        "held_while_pattern_focused": true
+      },
+      "failed_criteria": [
+        "blurred_inside",
+        "live",
+        "ball_confined"
+      ],
+      "verdict": "NO"
+    },
+    "plain_backdrop_brush": {
+      "tree_created": true,
+      "capsule_capture_taken": true,
+      "capsule_capture_reason": "stable",
+      "capsule_capture_settle_tries": 2,
+      "capsule": {
+        "inside": {
+          "pixels": 26216,
+          "gray_min": 52,
+          "gray_max": 203,
+          "gray_mean": 128.3,
+          "pure_fraction": 0,
+          "nonpure_fraction": 1,
+          "max_colour_spread": 0
+        },
+        "inside_class": "blurred",
+        "blurred_inside": true,
+        "outside": {
+          "pixels": 109176,
+          "gray_min": 0,
+          "gray_max": 255,
+          "gray_mean": 132.3,
+          "pure_fraction": 1,
+          "nonpure_fraction": 0,
+          "max_colour_spread": 0
+        },
+        "sharp_outside": true,
+        "inside_mean_abs_diff_vs_bare_pattern": 80.36
+      },
+      "live": {
+        "capture_taken": true,
+        "capture_reason": "stable",
+        "inside_mean_abs_diff": 66.71,
+        "outside_mean_abs_diff_sanity": 127.5,
+        "inside_changed": true,
+        "rms_if_not_moved": 74.09,
+        "rms_if_moved_left_by_half_stripe": 1.04,
+        "rms_if_moved_right_by_half_stripe": 104.98,
+        "inside_tracks_the_pattern": true,
+        "inside_after_shift": {
+          "pixels": 26216,
+          "gray_min": 52,
+          "gray_max": 203,
+          "gray_mean": 127.4,
+          "pure_fraction": 0,
+          "nonpure_fraction": 1,
+          "max_colour_spread": 0
+        },
+        "outside_after_shift": {
+          "pixels": 109176,
+          "gray_min": 0,
+          "gray_max": 255,
+          "gray_mean": 127.5,
+          "pure_fraction": 1,
+          "nonpure_fraction": 0,
+          "max_colour_spread": 0
+        },
+        "live": true
+      },
+      "ball": {
+        "capture_taken": true,
+        "capture_reason": "stable",
+        "inside": {
+          "pixels": 384,
+          "gray_min": 52,
+          "gray_max": 201,
+          "gray_mean": 127.5,
+          "pure_fraction": 0,
+          "nonpure_fraction": 1,
+          "max_colour_spread": 0
+        },
+        "inside_class": "blurred",
+        "blurred_inside": true,
+        "outside": {
+          "pixels": 149212,
+          "gray_min": 0,
+          "gray_max": 255,
+          "gray_mean": 127.5,
+          "pure_fraction": 1,
+          "nonpure_fraction": 0,
+          "max_colour_spread": 0
+        },
+        "sharp_outside": true,
+        "confined": true
+      },
+      "focus": {
+        "pattern_in_front_and_focused_at_every_capture": true,
+        "probe_activation_messages": 0,
+        "probe_focus_messages": 0,
+        "held_while_pattern_focused": true
+      },
+      "failed_criteria": [],
+      "verdict": "YES"
+    },
+    "host_backdrop_brush_attribute_set_after_show": {
+      "tree_created": true,
+      "capsule_capture_taken": true,
+      "capsule_capture_reason": "stable",
+      "capsule_capture_settle_tries": 2,
+      "capsule": {
+        "inside": {
+          "pixels": 26216,
+          "gray_min": 0,
+          "gray_max": 0,
+          "gray_mean": 0,
+          "pure_fraction": 1,
+          "nonpure_fraction": 0,
+          "max_colour_spread": 0
+        },
+        "inside_class": "flat",
+        "blurred_inside": false,
+        "outside": {
+          "pixels": 109176,
+          "gray_min": 0,
+          "gray_max": 255,
+          "gray_mean": 132.3,
+          "pure_fraction": 1,
+          "nonpure_fraction": 0,
+          "max_colour_spread": 0
+        },
+        "sharp_outside": true,
+        "inside_mean_abs_diff_vs_bare_pattern": 129.33
+      },
+      "live": {
+        "capture_taken": true,
+        "capture_reason": "stable",
+        "inside_mean_abs_diff": 0,
+        "outside_mean_abs_diff_sanity": 127.5,
+        "inside_changed": false,
+        "rms_if_not_moved": 0,
+        "rms_if_moved_left_by_half_stripe": 0,
+        "rms_if_moved_right_by_half_stripe": 0,
+        "inside_tracks_the_pattern": true,
+        "inside_after_shift": {
+          "pixels": 26216,
+          "gray_min": 0,
+          "gray_max": 0,
+          "gray_mean": 0,
+          "pure_fraction": 1,
+          "nonpure_fraction": 0,
+          "max_colour_spread": 0
+        },
+        "outside_after_shift": {
+          "pixels": 109176,
+          "gray_min": 0,
+          "gray_max": 255,
+          "gray_mean": 127.5,
+          "pure_fraction": 1,
+          "nonpure_fraction": 0,
+          "max_colour_spread": 0
+        },
+        "live": false
+      },
+      "ball": {
+        "capture_taken": true,
+        "capture_reason": "stable",
+        "inside": {
+          "pixels": 384,
+          "gray_min": 0,
+          "gray_max": 0,
+          "gray_mean": 0,
+          "pure_fraction": 1,
+          "nonpure_fraction": 0,
+          "max_colour_spread": 0
+        },
+        "inside_class": "flat",
+        "blurred_inside": false,
+        "outside": {
+          "pixels": 149212,
+          "gray_min": 0,
+          "gray_max": 255,
+          "gray_mean": 127.5,
+          "pure_fraction": 1,
+          "nonpure_fraction": 0,
+          "max_colour_spread": 0
+        },
+        "sharp_outside": true,
+        "confined": false
+      },
+      "focus": {
+        "pattern_in_front_and_focused_at_every_capture": true,
+        "probe_activation_messages": 0,
+        "probe_focus_messages": 0,
+        "held_while_pattern_focused": true
+      },
+      "failed_criteria": [
+        "blurred_inside",
+        "live",
+        "ball_confined"
+      ],
+      "verdict": "NO"
+    }
+  },
+  "edge_crop": {
+    "from_method": "plain_backdrop_brush",
+    "crop_px": "64x96",
+    "scale": 4,
+    "filter": "nearest neighbour (no smoothing, so single pixels can be judged)"
+  },
+  "morph_animation_tested": false,
+  "morph_note": "the shape was switched between capsule and ball by setting the clip geometry, not animated",
+  "verdict": "YES",
+  "verdict_detail": "plain_backdrop_brush: blurred inside the shape, sharp outside it, live after the stripes moved, with the pattern window (not the probe) in front, and the ball confined.",
+  "failed_criteria": [],
+  "method_that_did_it": "plain_backdrop_brush",
+  "pictures": [
+    "control-pattern.png",
+    "host_backdrop_brush-capsule-a.png",
+    "host_backdrop_brush-capsule-b-shifted.png",
+    "host_backdrop_brush-ball.png",
+    "plain_backdrop_brush-capsule-a.png",
+    "plain_backdrop_brush-capsule-b-shifted.png",
+    "plain_backdrop_brush-ball.png",
+    "host_backdrop_brush_attribute_set_after_show-capsule-a.png",
+    "host_backdrop_brush_attribute_set_after_show-capsule-b-shifted.png",
+    "host_backdrop_brush_attribute_set_after_show-ball.png",
+    "edge-4x.png"
+  ]
+}

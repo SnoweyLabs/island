@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "scenes": [
+    {
+      "id": "scene-1",
+      "name": "Evening",
+      "things": [
+        {
+          "id": "program:alpha",
+          "kind": "program",
+          "name": "Alpha",
+          "page": "scene",
+          "exe": "alpha.exe"
+        },
+        {
+          "id": "site:alpha.example",
+          "kind": "site",
+          "name": "Alpha site",
+          "page": "scene",
+          "host": "alpha.example"
+        }
+      ]
+    }
+  ]
+}

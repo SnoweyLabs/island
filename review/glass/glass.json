@@ -1,0 +1,348 @@
+{
+  "tool": "BlurProbe --glass",
+  "generated_utc": "2026-10-06T07:34:48Z",
+  "windows_build": "10.0.26200.0",
+  "display": {
+    "primary_px": "1920x1080",
+    "system_dpi": 96,
+    "remote_session": false,
+    "input_desktop_available": true
+  },
+  "windows_effects": {
+    "advanced_effects_enabled": true,
+    "note": "read only; nothing on this machine was changed"
+  },
+  "settings": {
+    "stripe_px": 40,
+    "anchor_window_px": "700x220",
+    "capsule_dip": "500x76 radius 38",
+    "ball_dip": 30,
+    "shape_top_dip": 72,
+    "glass_recipe": "blur sigma 18 dip, saturate 1.9, brightness 1.08 (reference .isl-d .body)",
+    "spring": "Island.Core.Spring: stiffness 230, damping 20, steps of 1/120 s",
+    "thresholds": "as review/blur/blur.json (Program.cs constants), plus the margins in GlassMode.cs"
+  },
+  "refusal_without_anchor": {
+    "available": false,
+    "reason": "ANCHOR_INVALID"
+  },
+  "click_through": {
+    "LayeredTransparent": {
+      "available": true,
+      "reason": null,
+      "window_from_point": {
+        "inside_capsule": {
+          "asked_from_this_probe": "other_program",
+          "asked_from_the_other_program": "other_program"
+        },
+        "window_outside_capsule": {
+          "asked_from_this_probe": "other_program",
+          "asked_from_the_other_program": "other_program"
+        },
+        "corner_top_left": {
+          "asked_from_this_probe": "other_program",
+          "asked_from_the_other_program": "other_program"
+        },
+        "corner_bottom_right": {
+          "asked_from_this_probe": "other_program",
+          "asked_from_the_other_program": "other_program"
+        },
+        "inside_ball": {
+          "asked_from_this_probe": "other_program",
+          "asked_from_the_other_program": "other_program"
+        },
+        "window_outside_ball": {
+          "asked_from_this_probe": "other_program",
+          "asked_from_the_other_program": "other_program"
+        }
+      },
+      "clicks_reach_other_program": true
+    },
+    "Transparent": {
+      "available": true,
+      "reason": null,
+      "window_from_point": {
+        "inside_capsule": {
+          "asked_from_this_probe": "other_program",
+          "asked_from_the_other_program": "glass_layer"
+        },
+        "window_outside_capsule": {
+          "asked_from_this_probe": "other_program",
+          "asked_from_the_other_program": "glass_layer"
+        },
+        "corner_top_left": {
+          "asked_from_this_probe": "other_program",
+          "asked_from_the_other_program": "glass_layer"
+        },
+        "corner_bottom_right": {
+          "asked_from_this_probe": "other_program",
+          "asked_from_the_other_program": "glass_layer"
+        },
+        "inside_ball": {
+          "asked_from_this_probe": "other_program",
+          "asked_from_the_other_program": "glass_layer"
+        },
+        "window_outside_ball": {
+          "asked_from_this_probe": "other_program",
+          "asked_from_the_other_program": "glass_layer"
+        }
+      },
+      "clicks_reach_other_program": false
+    },
+    "HitTestOnly": {
+      "available": true,
+      "reason": null,
+      "window_from_point": {
+        "inside_capsule": {
+          "asked_from_this_probe": "other_program",
+          "asked_from_the_other_program": "glass_layer"
+        },
+        "window_outside_capsule": {
+          "asked_from_this_probe": "other_program",
+          "asked_from_the_other_program": "glass_layer"
+        },
+        "corner_top_left": {
+          "asked_from_this_probe": "other_program",
+          "asked_from_the_other_program": "glass_layer"
+        },
+        "corner_bottom_right": {
+          "asked_from_this_probe": "other_program",
+          "asked_from_the_other_program": "glass_layer"
+        },
+        "inside_ball": {
+          "asked_from_this_probe": "other_program",
+          "asked_from_the_other_program": "glass_layer"
+        },
+        "window_outside_ball": {
+          "asked_from_this_probe": "other_program",
+          "asked_from_the_other_program": "glass_layer"
+        }
+      },
+      "clicks_reach_other_program": false
+    },
+    "note": "categories only; window handles are compared in memory. Points are in the stand-in island window, which is itself layered and click-through"
+  },
+  "foregroundGranted": true,
+  "pattern_window": {
+    "client_px": "1100x420",
+    "foreground_after_ensure": true,
+    "focus_after_ensure": true
+  },
+  "pictures_check": {
+    "control_taken": true,
+    "control_reason": "stable",
+    "control_capture_exact": true,
+    "LayeredTransparent": {
+      "available": true,
+      "capsule": {
+        "capture_taken": true,
+        "capture_reason": "stable",
+        "settle_tries": 2,
+        "inside": {
+          "pixels": 26216,
+          "gray_min": 71,
+          "gray_max": 204,
+          "gray_mean": 138.6,
+          "pure_fraction": 0,
+          "nonpure_fraction": 1,
+          "max_colour_spread": 0
+        },
+        "inside_class": "blurred",
+        "blurred_inside": true,
+        "outside": {
+          "pixels": 109176,
+          "gray_min": 0,
+          "gray_max": 255,
+          "gray_mean": 123.3,
+          "pure_fraction": 1,
+          "nonpure_fraction": 0,
+          "max_colour_spread": 0
+        },
+        "sharp_outside": true
+      }
+    },
+    "capsule_blurred_inside_sharp_outside": true,
+    "live": {
+      "capture_taken": true,
+      "inside_mean_abs_diff": 58.12,
+      "rms_if_not_moved": 64.53,
+      "rms_if_moved_left_by_half_stripe": 13.78,
+      "live": true
+    },
+    "ball": {
+      "capture_taken": true,
+      "capture_reason": "stable",
+      "settle_tries": 2,
+      "inside": {
+        "pixels": 384,
+        "gray_min": 90,
+        "gray_max": 185,
+        "gray_mean": 138.1,
+        "pure_fraction": 0,
+        "nonpure_fraction": 1,
+        "max_colour_spread": 0
+      },
+      "inside_class": "blurred",
+      "blurred_inside": true,
+      "outside": {
+        "pixels": 149212,
+        "gray_min": 0,
+        "gray_max": 255,
+        "gray_mean": 123.8,
+        "pure_fraction": 1,
+        "nonpure_fraction": 0,
+        "max_colour_spread": 0
+      },
+      "sharp_outside": true
+    },
+    "middle_of_expansion": {
+      "capture_taken": true,
+      "capture_reason": "stable",
+      "settle_tries": 2,
+      "inside": {
+        "pixels": 9516,
+        "gray_min": 71,
+        "gray_max": 204,
+        "gray_mean": 139.4,
+        "pure_fraction": 0,
+        "nonpure_fraction": 1,
+        "max_colour_spread": 0
+      },
+      "inside_class": "blurred",
+      "blurred_inside": true,
+      "outside": {
+        "pixels": 133648,
+        "gray_min": 0,
+        "gray_max": 255,
+        "gray_mean": 122.4,
+        "pure_fraction": 1,
+        "nonpure_fraction": 0,
+        "max_colour_spread": 0
+      },
+      "sharp_outside": true,
+      "frozen_shape_dip": "274.5x53.9 radius 27.0",
+      "frames_driven_before_freeze": 7
+    },
+    "lag": {
+      "seen_after_ms": 60.7,
+      "compositor_frames_waited": 1,
+      "patch_nonpure_before": 0,
+      "note": "upper bound: each photograph itself takes time, so a frame can be skipped between looks"
+    },
+    "Transparent": {
+      "available": true,
+      "capsule": {
+        "capture_taken": true,
+        "capture_reason": "stable",
+        "settle_tries": 2,
+        "inside": {
+          "pixels": 26216,
+          "gray_min": 71,
+          "gray_max": 204,
+          "gray_mean": 138.6,
+          "pure_fraction": 0,
+          "nonpure_fraction": 1,
+          "max_colour_spread": 0
+        },
+        "inside_class": "blurred",
+        "blurred_inside": true,
+        "outside": {
+          "pixels": 109176,
+          "gray_min": 0,
+          "gray_max": 255,
+          "gray_mean": 123.3,
+          "pure_fraction": 1,
+          "nonpure_fraction": 0,
+          "max_colour_spread": 0
+        },
+        "sharp_outside": true
+      }
+    },
+    "HitTestOnly": {
+      "available": true,
+      "capsule": {
+        "capture_taken": true,
+        "capture_reason": "stable",
+        "settle_tries": 2,
+        "inside": {
+          "pixels": 26216,
+          "gray_min": 71,
+          "gray_max": 204,
+          "gray_mean": 138.6,
+          "pure_fraction": 0,
+          "nonpure_fraction": 1,
+          "max_colour_spread": 0
+        },
+        "inside_class": "blurred",
+        "blurred_inside": true,
+        "outside": {
+          "pixels": 109176,
+          "gray_min": 0,
+          "gray_max": 255,
+          "gray_mean": 123.3,
+          "pure_fraction": 1,
+          "nonpure_fraction": 0,
+          "max_colour_spread": 0
+        },
+        "sharp_outside": true
+      }
+    }
+  },
+  "chosen_click_through": "LayeredTransparent",
+  "timing": {
+    "click_through_mode": "LayeredTransparent",
+    "hidden_follow_every_frame": {
+      "seconds": 2.01,
+      "frames": 129,
+      "frames_per_second": 64.2,
+      "follow_us_median": 0.4,
+      "follow_us_p99": 2.8,
+      "follow_us_max": 18.8,
+      "follow_bytes_allocated_total": 0,
+      "process_cpu_percent_of_one_core": 2.33,
+      "dwm_cpu_percent_of_one_core": null
+    },
+    "show_call_us": 1742.5,
+    "shown_still": {
+      "seconds": 2.01,
+      "frames": 130,
+      "frames_per_second": 64.7,
+      "follow_us_median": 1.4,
+      "follow_us_p99": 9.8,
+      "follow_us_max": 13.9,
+      "follow_bytes_allocated_total": 0,
+      "process_cpu_percent_of_one_core": 0,
+      "dwm_cpu_percent_of_one_core": null
+    },
+    "shown_moving": {
+      "seconds": 4.01,
+      "frames": 260,
+      "frames_per_second": 64.8,
+      "follow_us_median": 44.9,
+      "follow_us_p99": 370.4,
+      "follow_us_max": 912.1,
+      "follow_bytes_allocated_total": 0,
+      "process_cpu_percent_of_one_core": 1.95,
+      "dwm_cpu_percent_of_one_core": null
+    },
+    "hide_call_us": 1353.9,
+    "note": "process CPU covers this whole probe (its frame loop and the spring maths included); dwm CPU is the system compositor\u0027s whole process, everything else on screen included, so compare it between the three runs"
+  },
+  "glass_activation_messages": 0,
+  "glass_focus_messages": 0,
+  "verdict": "YES",
+  "verdict_detail": "blurred inside and sharp outside for the ball, the open capsule and the middle of the expansion; clicks reach another program; the glass never took focus",
+  "failed_criteria": [],
+  "not_measured": null,
+  "pictures": [
+    "control-pattern.png",
+    "LayeredTransparent-capsule.png",
+    "glass-capsule-shifted.png",
+    "glass-capsule.png",
+    "glass-edge-4x.png",
+    "glass-ball.png",
+    "glass-mid-expansion.png",
+    "Transparent-capsule.png",
+    "HitTestOnly-capsule.png"
+  ]
+}

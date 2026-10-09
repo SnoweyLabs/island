@@ -1,0 +1,2615 @@
+{
+  "startedAt": "2026-10-08T03:51:14.2307141\u002B03:00",
+  "finishedAt": "2026-10-08T03:57:21.3984432\u002B03:00",
+  "verify": "NEEDS-HUMAN-VERIFY \u2014 63 of 971 frames during the repeated summons were later than twice the refresh interval (12.06 ms); longest 54.62 ms. A busy laptop can cause that. Watch ten summons: does the ball come in smoothly? | Windows did not let the self-test bring one of its own test windows forward through the outside layer (foregroundGranted: false); click an open pick and see that its window comes to the front. | Windows did not let the self-test bring its own test window forward after a click on a pick (foregroundGranted: false); click an open pick and see that its window comes to the front. | Windows did not let the self-test bring its own test window forward after a pick\u0027s key (foregroundGranted: false); give a program a key, press it, and see that its window comes to the front. | Windows did not let the self-test bring its stand-in window forward (foregroundGranted: false), so the setup\u0027s hand-back of the keyboard was not checked: Settings, Run the setup again, Esc, and see that you are back where you were. | Windows did not let the self-test bring its stand-in window forward (foregroundGranted: false), so the foreground after the island\u0027s keys was not checked: Ctrl\u002BQ, a few arrows, Esc, and see that you are back where you were. | Windows did not let the self-test bring its stand-in window forward (foregroundGranted: false), so the foreground after the Terminals page was not checked: Tab to Terminals, a click on a tile, and see that its window comes to the front. | Windows did not let the self-test bring its stand-in window forward, so the check that a quiet island notices the keyboard going elsewhere was not made here: press Ctrl\u002BQ, 3 in Do not disturb, click another program and see that the island gives the keyboard back. | The graphics-card light was never compared with the old one by eye (no screen is captured): open the island and watch its edge: does the light run round it smoothly, with a soft rim, and do the corners and the ball\u0027s first moment look right? | Windows did not let the self-test bring its stand-in window forward (foregroundGranted: false), so the settings screen\u0027s keyboard hand-over was not checked: open Settings from the tray, press Esc, and see that you are back where you were. | Windows did not let the self-test bring its own stand-in window forward (foregroundGranted: false), so taking and returning the keyboard was not checked here: press Ctrl\u002BQ, 3, Esc in another program and see whether you land back in the same place. | With the Blur glass 69 of 934 frames during the repeated summons came later than twice the refresh interval (12.2 ms); watch ten summons with Blur: is it smooth, and does the blur follow the capsule without lag?",
+  "passed": true,
+  "needsHumanVerify": [
+    "63 of 971 frames during the repeated summons were later than twice the refresh interval (12.06 ms); longest 54.62 ms. A busy laptop can cause that. Watch ten summons: does the ball come in smoothly?",
+    "Windows did not let the self-test bring one of its own test windows forward through the outside layer (foregroundGranted: false); click an open pick and see that its window comes to the front.",
+    "Windows did not let the self-test bring its own test window forward after a click on a pick (foregroundGranted: false); click an open pick and see that its window comes to the front.",
+    "Windows did not let the self-test bring its own test window forward after a pick\u0027s key (foregroundGranted: false); give a program a key, press it, and see that its window comes to the front.",
+    "Windows did not let the self-test bring its stand-in window forward (foregroundGranted: false), so the setup\u0027s hand-back of the keyboard was not checked: Settings, Run the setup again, Esc, and see that you are back where you were.",
+    "Windows did not let the self-test bring its stand-in window forward (foregroundGranted: false), so the foreground after the island\u0027s keys was not checked: Ctrl\u002BQ, a few arrows, Esc, and see that you are back where you were.",
+    "Windows did not let the self-test bring its stand-in window forward (foregroundGranted: false), so the foreground after the Terminals page was not checked: Tab to Terminals, a click on a tile, and see that its window comes to the front.",
+    "Windows did not let the self-test bring its stand-in window forward, so the check that a quiet island notices the keyboard going elsewhere was not made here: press Ctrl\u002BQ, 3 in Do not disturb, click another program and see that the island gives the keyboard back.",
+    "The graphics-card light was never compared with the old one by eye (no screen is captured): open the island and watch its edge: does the light run round it smoothly, with a soft rim, and do the corners and the ball\u0027s first moment look right?",
+    "Windows did not let the self-test bring its stand-in window forward (foregroundGranted: false), so the settings screen\u0027s keyboard hand-over was not checked: open Settings from the tray, press Esc, and see that you are back where you were.",
+    "Windows did not let the self-test bring its own stand-in window forward (foregroundGranted: false), so taking and returning the keyboard was not checked here: press Ctrl\u002BQ, 3, Esc in another program and see whether you land back in the same place.",
+    "With the Blur glass 69 of 934 frames during the repeated summons came later than twice the refresh interval (12.2 ms); watch ten summons with Blur: is it smooth, and does the blur follow the capsule without lag?"
+  ],
+  "checks": [
+    {
+      "Name": "capsule window has tool-window, no-activate and topmost styles",
+      "Passed": true,
+      "Detail": "extended style 0x08080088"
+    },
+    {
+      "Name": "capsule window does not ignore the mouse itself",
+      "Passed": true,
+      "Detail": "it must catch clicks on the capsule"
+    },
+    {
+      "Name": "shadow window has tool-window, no-activate and topmost styles",
+      "Passed": true,
+      "Detail": "extended style 0x080800A8"
+    },
+    {
+      "Name": "shadow window ignores the mouse entirely",
+      "Passed": true,
+      "Detail": "extended style 0x080800A8"
+    },
+    {
+      "Name": "the window that had focus before the island appeared still has it",
+      "Passed": true,
+      "Detail": "same"
+    },
+    {
+      "Name": "neither island window is the active window",
+      "Passed": true,
+      "Detail": "IsActive false for both"
+    },
+    {
+      "Name": "neither island window is the foreground window",
+      "Passed": true,
+      "Detail": "foreground is not ours"
+    },
+    {
+      "Name": "a point at the centre of the shape belongs to this process",
+      "Passed": true,
+      "Detail": "WindowFromPoint"
+    },
+    {
+      "Name": "a point in the shadow just below the shape belongs to another window",
+      "Passed": true,
+      "Detail": "WindowFromPoint"
+    },
+    {
+      "Name": "a point in the shadow just beside the shape belongs to another window",
+      "Passed": true,
+      "Detail": "WindowFromPoint"
+    },
+    {
+      "Name": "the top-left corner of the window belongs to another window",
+      "Passed": true,
+      "Detail": "WindowFromPoint"
+    },
+    {
+      "Name": "the bottom-right corner of the window belongs to another window",
+      "Passed": true,
+      "Detail": "WindowFromPoint"
+    },
+    {
+      "Name": "shape snapshot has alpha 0 in all four corners",
+      "Passed": true,
+      "Detail": "corners of the capsule window"
+    },
+    {
+      "Name": "shape snapshot has alpha above 0 at the centre of the shape",
+      "Passed": true,
+      "Detail": "alpha 153"
+    },
+    {
+      "Name": "shadow snapshot has alpha 0 in all four corners",
+      "Passed": true,
+      "Detail": "corners of the shadow window"
+    },
+    {
+      "Name": "shadow snapshot has alpha above 0 just below the shape",
+      "Passed": true,
+      "Detail": "alpha 50"
+    },
+    {
+      "Name": "shadow snapshot has alpha 0 inside the shape (shadow only outside the outline)",
+      "Passed": true,
+      "Detail": "alpha 0"
+    },
+    {
+      "Name": "WPF BlurEffect radius is three times the Gaussian sigma (the factor used to translate CSS blur)",
+      "Passed": true,
+      "Detail": "radius 10 -\u003E sigma 3.33 (radius/sigma 3.00); radius 30 -\u003E sigma 9.99 (radius/sigma 3.00); radius 75 -\u003E sigma 24.97 (radius/sigma 3.00)"
+    },
+    {
+      "Name": "media-dark: a rim pixel away from the arcs is closest to its own category colour",
+      "Passed": true,
+      "Detail": "pixel rgb(205,83,100); closest media at 55.55, next folders at 133.73"
+    },
+    {
+      "Name": "media-light: a rim pixel away from the arcs is closest to its own category colour",
+      "Passed": true,
+      "Detail": "pixel rgb(223,102,116); closest media at 58.56, next folders at 124.47"
+    },
+    {
+      "Name": "media: drawn capsule size equals CapsuleLayout",
+      "Passed": true,
+      "Detail": "drawn 466 x 76, layout 466 x 76 (glass body alone, tolerance 1, at 50% alpha; the rim reaches 0.3 beyond the edge by design)"
+    },
+    {
+      "Name": "folders-dark: a rim pixel away from the arcs is closest to its own category colour",
+      "Passed": true,
+      "Detail": "pixel rgb(205,160,64); closest folders at 66.12, next terminals at 82.93"
+    },
+    {
+      "Name": "folders-light: a rim pixel away from the arcs is closest to its own category colour",
+      "Passed": true,
+      "Detail": "pixel rgb(223,179,80); closest folders at 61.26, next terminals at 75.67"
+    },
+    {
+      "Name": "folders: drawn capsule size equals CapsuleLayout",
+      "Passed": true,
+      "Detail": "drawn 454 x 76, layout 454 x 76 (glass body alone, tolerance 1, at 50% alpha; the rim reaches 0.3 beyond the edge by design)"
+    },
+    {
+      "Name": "apps-dark: a rim pixel away from the arcs is closest to its own category colour",
+      "Passed": true,
+      "Detail": "pixel rgb(62,113,209); closest apps at 55.51, next vibe at 126.32"
+    },
+    {
+      "Name": "apps-light: a rim pixel away from the arcs is closest to its own category colour",
+      "Passed": true,
+      "Detail": "pixel rgb(80,132,225); closest apps at 61.17, next vibe at 121.43"
+    },
+    {
+      "Name": "apps: drawn capsule size equals CapsuleLayout",
+      "Passed": true,
+      "Detail": "drawn 502 x 76, layout 502 x 76 (glass body alone, tolerance 1, at 50% alpha; the rim reaches 0.3 beyond the edge by design)"
+    },
+    {
+      "Name": "vibe-dark: a rim pixel away from the arcs is closest to its own category colour",
+      "Passed": true,
+      "Detail": "pixel rgb(58,190,161); closest vibe at 54.89, next apps at 125.72"
+    },
+    {
+      "Name": "vibe-light: a rim pixel away from the arcs is closest to its own category colour",
+      "Passed": true,
+      "Detail": "pixel rgb(76,209,177); closest vibe at 55.19, next apps at 133.09"
+    },
+    {
+      "Name": "vibe: drawn capsule size equals CapsuleLayout",
+      "Passed": true,
+      "Detail": "drawn 454 x 76, layout 454 x 76 (glass body alone, tolerance 1, at 50% alpha; the rim reaches 0.3 beyond the edge by design)"
+    },
+    {
+      "Name": "browser-dark: a rim pixel away from the arcs is closest to its own category colour",
+      "Passed": true,
+      "Detail": "pixel rgb(192,145,209); closest browser at 63.42, next media at 160.95"
+    },
+    {
+      "Name": "browser-light: a rim pixel away from the arcs is closest to its own category colour",
+      "Passed": true,
+      "Detail": "pixel rgb(210,164,225); closest browser at 38.01, next media at 177.83"
+    },
+    {
+      "Name": "browser: drawn capsule size equals CapsuleLayout",
+      "Passed": true,
+      "Detail": "drawn 502 x 76, layout 502 x 76 (glass body alone, tolerance 1, at 50% alpha; the rim reaches 0.3 beyond the edge by design)"
+    },
+    {
+      "Name": "terminals-dark: a rim pixel away from the arcs is closest to its own category colour",
+      "Passed": true,
+      "Detail": "pixel rgb(160,196,83); closest terminals at 56.01, next folders at 110.43"
+    },
+    {
+      "Name": "terminals-light: a rim pixel away from the arcs is closest to its own category colour",
+      "Passed": true,
+      "Detail": "pixel rgb(178,215,99); closest terminals at 48.39, next folders at 109.23"
+    },
+    {
+      "Name": "terminals: drawn capsule size equals CapsuleLayout",
+      "Passed": true,
+      "Detail": "drawn 406 x 76, layout 406 x 76 (glass body alone, tolerance 1, at 50% alpha; the rim reaches 0.3 beyond the edge by design)"
+    },
+    {
+      "Name": "the five dark capsule snapshots all differ from one another",
+      "Passed": true,
+      "Detail": "all pairs differ"
+    },
+    {
+      "Name": "title contrast on the light snapshots was measured and recorded",
+      "Passed": true,
+      "Detail": "worst terminals at 3.63:1; below 4.5:1 is expected and recorded as a question, not fixed"
+    },
+    {
+      "Name": "the snapshots ball-dark, ball-light and \u003Cpage\u003E-dark and -light exist for every page",
+      "Passed": true,
+      "Detail": "14 pictures"
+    },
+    {
+      "Name": "a page made by the person lights the edge in its own colour: a rim pixel is closest to that page\u0027s colour of all the pages",
+      "Passed": true,
+      "Detail": "pixel rgb(122,185,94); closest page-9 at 43.87, next terminals at 90.36"
+    },
+    {
+      "Name": "the icon of explorer.exe could be read for the choice pictures",
+      "Passed": true,
+      "Detail": "32 x 32"
+    },
+    {
+      "Name": "the two glasses were drawn and the title contrast of each was measured",
+      "Passed": true,
+      "Detail": "approved 3.66:1, darker 4.69:1 on the light background"
+    },
+    {
+      "Name": "the darker glass reads better than the approved one",
+      "Passed": true,
+      "Detail": "4.69 against 3.66"
+    },
+    {
+      "Name": "switching the glass in a running view changes the picture to what the darker glass draws",
+      "Passed": true,
+      "Detail": "same pixels as a fresh darker view"
+    },
+    {
+      "Name": "test icon 1: the disc reaches the edge all the way round, in its own colour",
+      "Passed": true,
+      "Detail": "24 of 24 points on the ring are the disc\u0027s colour and opaque"
+    },
+    {
+      "Name": "test icon 2: the disc reaches the edge all the way round, in its own colour",
+      "Passed": true,
+      "Detail": "24 of 24 points on the ring are the disc\u0027s colour and opaque"
+    },
+    {
+      "Name": "test icon 3: the disc reaches the edge all the way round, in its own colour",
+      "Passed": true,
+      "Detail": "24 of 24 points on the ring are the disc\u0027s colour and opaque"
+    },
+    {
+      "Name": "test icon 4: the disc reaches the edge all the way round, in its own colour",
+      "Passed": true,
+      "Detail": "24 of 24 points on the ring are the disc\u0027s colour and opaque"
+    },
+    {
+      "Name": "test icon 5: the disc reaches the edge all the way round, in its own colour",
+      "Passed": true,
+      "Detail": "24 of 24 points on the ring are the disc\u0027s colour and opaque"
+    },
+    {
+      "Name": "test icon 6 (no opaque pixel) shows the two letters",
+      "Passed": true,
+      "Detail": "the two-letter tile"
+    },
+    {
+      "Name": "the six test icons, open and closed, were drawn into review/choices/round-icons.png",
+      "Passed": true,
+      "Detail": "a snapshot proves it draws, not that it looks right"
+    },
+    {
+      "Name": "a closed pick\u0027s own picture has equal red, green and blue in every pixel",
+      "Passed": true,
+      "Detail": "4096 pixels read"
+    },
+    {
+      "Name": "an open pick\u0027s own picture is the known colour",
+      "Passed": true,
+      "Detail": "colour kept"
+    },
+    {
+      "Name": "a closed pick\u0027s tile is drawn without colour",
+      "Passed": true,
+      "Detail": "centre pixel spread 3"
+    },
+    {
+      "Name": "a tile draws no dot for none or one window, that many for two to five, and five for six",
+      "Passed": true,
+      "Detail": "0 windows: 0, 1 windows: 0, 2 windows: 2, 3 windows: 3, 5 windows: 5, 6 windows: 5"
+    },
+    {
+      "Name": "two windows draw two white dots under the tile and one window draws none",
+      "Passed": true,
+      "Detail": "two windows: True, one window: False"
+    },
+    {
+      "Name": "a slid row has an arrow on each side and is drawn",
+      "Passed": true,
+      "Detail": "arrows (True, True)"
+    },
+    {
+      "Name": "0.3 s apart the two pictures differ inside the playing tile and nowhere else",
+      "Passed": true,
+      "Detail": "differences between x 374..401, y 89..122; the tile is x 346..430, y 64..148"
+    },
+    {
+      "Name": "paused, the pictures 0.3 s apart are the same",
+      "Passed": true,
+      "Detail": "the bars stand still"
+    },
+    {
+      "Name": "hidden (before the first summon): no pixel at the capsule\u0027s resting place catches the mouse",
+      "Passed": true,
+      "Detail": "WindowFromPoint at the rest centre"
+    },
+    {
+      "Name": "before the first summon the controller is detached from the frame callback and the island is hidden",
+      "Passed": true,
+      "Detail": "attached False, phase Hidden"
+    },
+    {
+      "Name": "the summon key handler starts the fly-in",
+      "Passed": true,
+      "Detail": "phase FlyingIn"
+    },
+    {
+      "Name": "the machine reached Open",
+      "Passed": true,
+      "Detail": "phase Open"
+    },
+    {
+      "Name": "a frame counter advanced while the island was open",
+      "Passed": true,
+      "Detail": "42 frames in 500 ms"
+    },
+    {
+      "Name": "while open: the centre of the capsule belongs to this process",
+      "Passed": true,
+      "Detail": "WindowFromPoint"
+    },
+    {
+      "Name": "while open: the shadow just below the capsule belongs to another window",
+      "Passed": true,
+      "Detail": "WindowFromPoint"
+    },
+    {
+      "Name": "while open: the shadow just beside the capsule belongs to another window",
+      "Passed": true,
+      "Detail": "WindowFromPoint"
+    },
+    {
+      "Name": "while open: a corner of the window belongs to another window",
+      "Passed": true,
+      "Detail": "WindowFromPoint"
+    },
+    {
+      "Name": "two snapshots taken while open show the arc in different places",
+      "Passed": true,
+      "Detail": "moved 0.23 of the outline"
+    },
+    {
+      "Name": "in each snapshot the arc is where its clock says (18% of the outline per second)",
+      "Passed": true,
+      "Detail": "differences 0 and 0 of the outline"
+    },
+    {
+      "Name": "page key media: the island shows that page",
+      "Passed": true,
+      "Detail": "phase Open, contents of media"
+    },
+    {
+      "Name": "page key folders: the island shows that page",
+      "Passed": true,
+      "Detail": "phase Open, contents of folders"
+    },
+    {
+      "Name": "page key apps: the island shows that page",
+      "Passed": true,
+      "Detail": "phase Open, contents of apps"
+    },
+    {
+      "Name": "page key vibe: the island shows that page",
+      "Passed": true,
+      "Detail": "phase Open, contents of vibe"
+    },
+    {
+      "Name": "page key browser: the island shows that page",
+      "Passed": true,
+      "Detail": "phase Open, contents of browser"
+    },
+    {
+      "Name": "page key terminals: the island shows that page",
+      "Passed": true,
+      "Detail": "phase Open, contents of terminals"
+    },
+    {
+      "Name": "changing page while open never closed the island",
+      "Passed": true,
+      "Detail": "phase stayed Open"
+    },
+    {
+      "Name": "every frame interval of the repeated summons was recorded, with its median, its longest and the count of late frames (EVALS M6: a record for a person, never a gate)",
+      "Passed": true,
+      "Detail": "971 intervals, median 12.1 ms"
+    },
+    {
+      "Name": "5 summons took the same time to open and be at rest, within one refresh interval",
+      "Passed": true,
+      "Detail": "spread 3.94 ms, refresh interval 12.06 ms, durations 1100.67, 1100.76, 1104.61, 1104.13, 1103.86"
+    },
+    {
+      "Name": "the dismiss key handler starts the fly-out",
+      "Passed": true,
+      "Detail": "phase Closing"
+    },
+    {
+      "Name": "the machine reached Hidden after the dismiss",
+      "Passed": true,
+      "Detail": "1075.4 ms after the key"
+    },
+    {
+      "Name": "the frame counter did not advance while hidden, over a wait longer than the whole dismiss animation",
+      "Passed": true,
+      "Detail": "counter 1695 -\u003E 1695 over 1613 ms (dismiss took 1075.4 ms), attached False"
+    },
+    {
+      "Name": "hidden (after the island left): no pixel at the capsule\u0027s resting place catches the mouse",
+      "Passed": true,
+      "Detail": "WindowFromPoint at the rest centre"
+    },
+    {
+      "Name": "no island window was ever the foreground window during the whole sequence",
+      "Passed": true,
+      "Detail": "foreground changed 0 times (other windows, if any, are not the island\u0027s doing); at the end it is same as before"
+    },
+    {
+      "Name": "the window lister read the open windows",
+      "Passed": true,
+      "Detail": "5 windows"
+    },
+    {
+      "Name": "a normal test window is in the window list",
+      "Passed": true,
+      "Detail": "own process, normal window"
+    },
+    {
+      "Name": "a tool window is not in the window list",
+      "Passed": true,
+      "Detail": "tool windows are left out like Alt\u002BTab does"
+    },
+    {
+      "Name": "the list carries only a file name for the program, never a path",
+      "Passed": true,
+      "Detail": "2 windows of the self-test\u0027s own program"
+    },
+    {
+      "Name": "bringing forward a window that is not the self-test\u0027s own is refused and counted",
+      "Passed": true,
+      "Detail": "numbers only"
+    },
+    {
+      "Name": "starting a program, opening a folder and a site are refused and counted",
+      "Passed": true,
+      "Detail": "nothing was started"
+    },
+    {
+      "Name": "the icon read for explorer.exe is not empty and is not the generic file icon",
+      "Passed": true,
+      "Detail": "256 px"
+    },
+    {
+      "Name": "the icon is read as large as the program offers: explorer.exe\u0027s has at least 48 pixels (EVALS I5: the sizes are tried from the largest down)",
+      "Passed": true,
+      "Detail": "256 px"
+    },
+    {
+      "Name": "the icon of a known folder can be read",
+      "Passed": true,
+      "Detail": "256 px"
+    },
+    {
+      "Name": "the installed programs were read",
+      "Passed": true,
+      "Detail": "166 programs, 7 of 16 starter programs found"
+    },
+    {
+      "Name": "the first-run starter list made from the real installed programs holds names only, never a path",
+      "Passed": true,
+      "Detail": "14 picks in a temporary file"
+    },
+    {
+      "Name": "a temporary picks file with the self-test\u0027s own program can be saved",
+      "Passed": true,
+      "Detail": "temporary data folder"
+    },
+    {
+      "Name": "an empty page looks intended: the capsule is as wide as the width rule says for no item and its line reads \u0022Nothing here yet\u0022",
+      "Passed": true,
+      "Detail": "0 item(s), 270 wide, line \u0022Nothing here yet\u0022"
+    },
+    {
+      "Name": "a page whose icon reader blocks is worked out at once with the tile\u0027s letters",
+      "Passed": true,
+      "Detail": "0 ms, icon none yet"
+    },
+    {
+      "Name": "the picture arrives by itself when the reader is let go, read on a thread that is not the one drawing",
+      "Passed": true,
+      "Detail": "read on thread 8, drawing thread 2, changed raised True"
+    },
+    {
+      "Name": "the Apps page shows exactly the one pick of the picks file",
+      "Passed": true,
+      "Detail": "1 item(s)"
+    },
+    {
+      "Name": "the capsule is as wide as the width rule says for one item",
+      "Passed": true,
+      "Detail": "310 wide"
+    },
+    {
+      "Name": "with no window open the pick reads closed",
+      "Passed": true,
+      "Detail": "closed"
+    },
+    {
+      "Name": "a click on the closed pick plans to start it and the gate refuses and counts it",
+      "Passed": true,
+      "Detail": "plan Start, refused 1"
+    },
+    {
+      "Name": "with a test window open the pick reads open",
+      "Passed": true,
+      "Detail": "open"
+    },
+    {
+      "Name": "with two test windows the pick reads \u00222 windows\u0022 and carries the count 2",
+      "Passed": true,
+      "Detail": "2 windows"
+    },
+    {
+      "Name": "the row on screen was rebuilt to carry the count",
+      "Passed": true,
+      "Detail": "drawn count 2"
+    },
+    {
+      "Name": "a click on an open pick asks for its top-most window",
+      "Passed": true,
+      "Detail": "plan BringForward"
+    },
+    {
+      "Name": "clicking again goes to the next window",
+      "Passed": true,
+      "Detail": "plan BringForward"
+    },
+    {
+      "Name": "a pick is given a key through the code the screen calls: kept and saved when Windows accepts it, not kept when Windows refuses it",
+      "Passed": true,
+      "Detail": "accepted"
+    },
+    {
+      "Name": "the key\u0027s handler does what a click on the pick does: the next window is asked to come forward",
+      "Passed": true,
+      "Detail": "plan BringForward"
+    },
+    {
+      "Name": "it brings the island in on the pick\u0027s page without the keyboard",
+      "Passed": true,
+      "Detail": "FlyingIn, page apps, keyboard False"
+    },
+    {
+      "Name": "the foreground window afterwards is not the island\u0027s",
+      "Passed": true,
+      "Detail": "another window"
+    },
+    {
+      "Name": "the key and a click share one order of windows: the click after the key goes to the window after it",
+      "Passed": true,
+      "Detail": "plan BringForward"
+    },
+    {
+      "Name": "clearing the pick\u0027s key leaves it empty and gives the combination back to Windows",
+      "Passed": true,
+      "Detail": "cleared"
+    },
+    {
+      "Name": "a key whose pick is gone does nothing",
+      "Passed": true,
+      "Detail": "no pick, no jump"
+    },
+    {
+      "Name": "the Focus capsule is identical, pixel for pixel, to one drawn with the mode mark left out",
+      "Passed": true,
+      "Detail": "same pixels"
+    },
+    {
+      "Name": "Vibe differs from Focus (the glow behind the edge is at the low end of its breath)",
+      "Passed": true,
+      "Detail": "different pixels"
+    },
+    {
+      "Name": "DND differs from Focus",
+      "Passed": true,
+      "Detail": "different pixels"
+    },
+    {
+      "Name": "the Focus and Vibe edge carry the page colour (so the test can see it)",
+      "Passed": true,
+      "Detail": "2340 and 2340 pixels"
+    },
+    {
+      "Name": "the DND capsule has no pixel of the page colour on its outer rim",
+      "Passed": true,
+      "Detail": "0 pixel(s) of the page colour"
+    },
+    {
+      "Name": "the moving light moves in Focus and does not exist in DND",
+      "Passed": true,
+      "Detail": "DND is the same wherever the light would be"
+    },
+    {
+      "Name": "Vibe\u0027s glow breathes with the clock alone",
+      "Passed": true,
+      "Detail": "same moment same picture; half a period later another; a whole period later the same"
+    },
+    {
+      "Name": "the notification sound is refused by the gate under the self-test and counted",
+      "Passed": true,
+      "Detail": "nothing was played"
+    },
+    {
+      "Name": "the three modes side by side were drawn into review/choices/modes.png",
+      "Passed": true,
+      "Detail": "a snapshot proves it draws, not that it looks right"
+    },
+    {
+      "Name": "the pill comes by itself when a source that counts starts playing, without the keyboard",
+      "Passed": true,
+      "Detail": "Open, keyboard False"
+    },
+    {
+      "Name": "the pill\u0027s drawn size is 44 high",
+      "Passed": true,
+      "Detail": "44.0 high"
+    },
+    {
+      "Name": "the foreground window is the one from before, or foregroundGranted: false",
+      "Passed": true,
+      "Detail": "the pill took nothing"
+    },
+    {
+      "Name": "the pill names what plays, with four buttons and a pause glyph while it plays",
+      "Passed": true,
+      "Detail": "Song, 4 buttons, pause"
+    },
+    {
+      "Name": "at rest with its ring drawn the pill lets go of the frame callback (it may stay up for hours)",
+      "Passed": true,
+      "Detail": "ring 0.739, frame rate False"
+    },
+    {
+      "Name": "at an invented 25% played the lit share is three quarters",
+      "Passed": true,
+      "Detail": "0.750"
+    },
+    {
+      "Name": "a paused item\u0027s pill shows the play glyph",
+      "Passed": true,
+      "Detail": "play"
+    },
+    {
+      "Name": "the lit part is the walk of the outline from the top centre, clockwise, for three quarters of its length",
+      "Passed": true,
+      "Detail": "starts at the top centre, ends at 0.750 of the outline"
+    },
+    {
+      "Name": "the pixels of the ring say the same: three quarters are lit in the Media colour (within 3%)",
+      "Passed": true,
+      "Detail": "0.750 of 600 points along the ring"
+    },
+    {
+      "Name": "with a length of zero the ring is absent and the moving light stands in (never an invented ring)",
+      "Passed": true,
+      "Detail": "ring absent"
+    },
+    {
+      "Name": "a player that reports Windows\u0027 zero date has no ring either",
+      "Passed": true,
+      "Detail": "the zero date is how Windows says there is no timeline"
+    },
+    {
+      "Name": "when playing stops the pill leaves after the idle time",
+      "Passed": true,
+      "Detail": "it went through the springs"
+    },
+    {
+      "Name": "a pill that came by itself leaves when a fullscreen program comes to the front in Vibe",
+      "Passed": true,
+      "Detail": "came True, left True"
+    },
+    {
+      "Name": "the pill comes back when the front is clear again",
+      "Passed": true,
+      "Detail": "shows pill True"
+    },
+    {
+      "Name": "in Do not disturb the pill never comes by itself",
+      "Passed": true,
+      "Detail": "shows pill False"
+    },
+    {
+      "Name": "the pill\u0027s previous, play or pause and next buttons send their commands to the player that is playing, in the order pressed",
+      "Passed": true,
+      "Detail": "media:alpha:Previous, media:alpha:PlayPause, media:alpha:Next"
+    },
+    {
+      "Name": "a click on the pill\u0027s title asks the outside door to bring the player\u0027s window forward",
+      "Passed": true,
+      "Detail": "bring:77"
+    },
+    {
+      "Name": "the pill\u0027s search button grows the pill into the search",
+      "Passed": true,
+      "Detail": "search open True"
+    },
+    {
+      "Name": "the pill with its ring and with the moving light was drawn into review/choices/pill.png",
+      "Passed": true,
+      "Detail": "a snapshot proves it draws, not that it looks right"
+    },
+    {
+      "Name": "the main key brings the island with the keyboard",
+      "Passed": true,
+      "Detail": "keyboard True"
+    },
+    {
+      "Name": "typed text opens search and goes into the field",
+      "Passed": true,
+      "Detail": "search open: True"
+    },
+    {
+      "Name": "\u0022tu\u0022 shows its two matches and Google\u0027s tile, Tunes selected",
+      "Passed": true,
+      "Detail": "3 tiles, the first named Tunes"
+    },
+    {
+      "Name": "the text block says Enter opens it",
+      "Passed": true,
+      "Detail": "Enter to open"
+    },
+    {
+      "Name": "the capsule\u0027s width follows the search layout",
+      "Passed": true,
+      "Detail": "452 wide"
+    },
+    {
+      "Name": "Right and Left move the selection",
+      "Passed": true,
+      "Detail": "Tunes, Tutorial, Tunes"
+    },
+    {
+      "Name": "Enter\u0027s handler is refused by the gate for a program that is not the self-test\u0027s own, and counted",
+      "Passed": true,
+      "Detail": "refused 1"
+    },
+    {
+      "Name": "after Enter search is over and the page shows again",
+      "Passed": true,
+      "Detail": "the page\u0027s row is back"
+    },
+    {
+      "Name": "Esc clears the text first, then leaves search and returns to the page",
+      "Passed": true,
+      "Detail": "cleared first: True"
+    },
+    {
+      "Name": "with search closed a digit still switches the page",
+      "Passed": true,
+      "Detail": "apps"
+    },
+    {
+      "Name": "the foreground window at the end is the one from before, or foregroundGranted: false",
+      "Passed": true,
+      "Detail": "search took nothing"
+    },
+    {
+      "Name": "search with two matches and the service\u0027s tile was drawn into review/choices/search.png",
+      "Passed": true,
+      "Detail": "the text \u0022tu\u0022 only; a snapshot proves it draws, not that it looks right"
+    },
+    {
+      "Name": "the island listens on a pipe name invented for this run",
+      "Passed": true,
+      "Detail": "invented name"
+    },
+    {
+      "Name": "Island.Notify ends with code 0 when the island listens",
+      "Passed": true,
+      "Detail": "exit code 0"
+    },
+    {
+      "Name": "the notice names the project and says the agent is done",
+      "Passed": true,
+      "Detail": "island / Agent finished \u2014 waiting for you"
+    },
+    {
+      "Name": "the notice takes no keyboard",
+      "Passed": true,
+      "Detail": "keyboard False"
+    },
+    {
+      "Name": "the foreground window is the one from before, or foregroundGranted: false",
+      "Passed": true,
+      "Detail": "the notice took nothing"
+    },
+    {
+      "Name": "a click on the notice dismisses it",
+      "Passed": true,
+      "Detail": "gone"
+    },
+    {
+      "Name": "Island.Notify with nobody listening ends with code 0",
+      "Passed": true,
+      "Detail": "exit code 0, 565 ms"
+    },
+    {
+      "Name": "the connector is refused by the gate under the self-test and touches nothing",
+      "Passed": true,
+      "Detail": "NotConnected, done False"
+    },
+    {
+      "Name": "Codex\u0027s connector and every update are refused by the gate under the self-test and touch nothing",
+      "Passed": true,
+      "Detail": "NotConnected, refused 4 of 4"
+    },
+    {
+      "Name": "one run of Island.Notify was timed, start to end and in processor time (a measurement, not a limit)",
+      "Passed": true,
+      "Detail": "264 ms, 250 ms of processor time (middle of 5)"
+    },
+    {
+      "Name": "a click on the notice asks the outside door to bring the window of the chain\u0027s program forward, once, and the notice goes",
+      "Passed": true,
+      "Detail": "shown True, calls: bring:56887458"
+    },
+    {
+      "Name": "in Vibe over a fullscreen program the notice does not appear by itself",
+      "Passed": true,
+      "Detail": "shows False"
+    },
+    {
+      "Name": "the waiting notice is shown once the table allows it",
+      "Passed": true,
+      "Detail": "shown after the front cleared"
+    },
+    {
+      "Name": "a notice that appeared by itself leaves when a fullscreen program comes to the front in Vibe",
+      "Passed": true,
+      "Detail": "shows False"
+    },
+    {
+      "Name": "in Do not disturb a notice never appears",
+      "Passed": true,
+      "Detail": "shows False"
+    },
+    {
+      "Name": "with one screen and a fullscreen program in front the notice does not appear, as before",
+      "Passed": true,
+      "Detail": "shows False"
+    },
+    {
+      "Name": "with a second screen and a fullscreen program in front on the first, the notice goes to the second screen",
+      "Passed": true,
+      "Detail": "shows True, other screen PixelRect { Left = 1920, Top = 0, Right = 3840, Bottom = 1080, Width = 1920, Height = 1080, HasArea = True }"
+    },
+    {
+      "Name": "a notice on the second screen is not taken away because the first screen still has the fullscreen program in front",
+      "Passed": true,
+      "Detail": "shows True"
+    },
+    {
+      "Name": "the notice was drawn into review/choices/notice.png",
+      "Passed": true,
+      "Detail": "a snapshot proves it draws, not that it looks right"
+    },
+    {
+      "Name": "the scenes file of the temporary folder holds one scene of two things and is read back",
+      "Passed": true,
+      "Detail": "scenes.json in the temporary folder"
+    },
+    {
+      "Name": "the app starts on the temporary folder with the scene",
+      "Passed": true,
+      "Detail": "AppHost.Start"
+    },
+    {
+      "Name": "the scene\u0027s key asks the gate for one open, which is refused and counted",
+      "Passed": true,
+      "Detail": "refused 1"
+    },
+    {
+      "Name": "the island comes in without the keyboard",
+      "Passed": true,
+      "Detail": "keyboard False"
+    },
+    {
+      "Name": "its text block reads the scene\u0027s name and \u00221 opened\u0022",
+      "Passed": true,
+      "Detail": "Evening / 1 opened"
+    },
+    {
+      "Name": "one message names what was skipped (SCENE_PART_MISSING), once",
+      "Passed": true,
+      "Detail": "1 message, SCENE_PART_MISSING"
+    },
+    {
+      "Name": "a key held down runs the scene once, not again and again",
+      "Passed": true,
+      "Detail": "the repeats were swallowed"
+    },
+    {
+      "Name": "the foreground window at the end is the one from before, or foregroundGranted: false",
+      "Passed": true,
+      "Detail": "a scene took nothing"
+    },
+    {
+      "Name": "each of the six steps of the setup was drawn into review/setup",
+      "Passed": true,
+      "Detail": "welcome, key, try it, pages, island, mode (a snapshot proves it draws, not that it looks right)"
+    },
+    {
+      "Name": "the setup shows the defaults: the starter picks and the mode Vibe is the one the table starts from",
+      "Passed": true,
+      "Detail": "23 picks, mode Vibe"
+    },
+    {
+      "Name": "the app starts on the temporary folder",
+      "Passed": true,
+      "Detail": "AppHost.Start"
+    },
+    {
+      "Name": "a start under the self-test does not open the setup by itself",
+      "Passed": true,
+      "Detail": "FirstStart says never under --selftest"
+    },
+    {
+      "Name": "the setup opens as the first step with its own button",
+      "Passed": true,
+      "Detail": "phase Open"
+    },
+    {
+      "Name": "a page made in the setup is accepted",
+      "Passed": true,
+      "Detail": "ok"
+    },
+    {
+      "Name": "leaving early keeps what was chosen so far and does not open the island",
+      "Passed": true,
+      "Detail": "island Hidden"
+    },
+    {
+      "Name": "the step after the key is Try it, and Start the practice steps the screen back, asks for the practice and hands the keys to the island",
+      "Passed": true,
+      "Detail": "on the step True, pressed True, asked 1, stepped back True"
+    },
+    {
+      "Name": "skipping the tutorial brings the screen back on the next step, the pages, and the practice is gone",
+      "Passed": true,
+      "Detail": "stepped back False, section Pages"
+    },
+    {
+      "Name": "Done ends with the island open and a settings file in the temporary folder",
+      "Passed": true,
+      "Detail": "island FlyingIn"
+    },
+    {
+      "Name": "the foreground window at the end is the one from before, or foregroundGranted: false",
+      "Passed": true,
+      "Detail": "foregroundGranted: false"
+    },
+    {
+      "Name": "the Apps page has an X, dimmed before any click",
+      "Passed": true,
+      "Detail": "state Dimmed"
+    },
+    {
+      "Name": "before any click the close handler does nothing",
+      "Passed": true,
+      "Detail": "both test windows are still open"
+    },
+    {
+      "Name": "a click on the pick arms the X, which is then drawn at full strength",
+      "Passed": true,
+      "Detail": "state Ready"
+    },
+    {
+      "Name": "the close handler closes the window the click brought forward and leaves the other one",
+      "Passed": true,
+      "Detail": "1 closed"
+    },
+    {
+      "Name": "the gate allowed it: a window of the self-test\u0027s own process, nothing refused",
+      "Passed": true,
+      "Detail": "no refusal counted"
+    },
+    {
+      "Name": "the X is used up and dimmed again",
+      "Passed": true,
+      "Detail": "state Dimmed"
+    },
+    {
+      "Name": "a new summon dims the armed X again",
+      "Passed": true,
+      "Detail": "armed True, state Dimmed"
+    },
+    {
+      "Name": "a temporary picks file with twelve picks on one page can be saved",
+      "Passed": true,
+      "Detail": "temporary data folder"
+    },
+    {
+      "Name": "the page has the twelve picks and the \u002B tile",
+      "Passed": true,
+      "Detail": "13 items"
+    },
+    {
+      "Name": "the capsule is as wide as the width rule says for seven picks and the \u002B tile",
+      "Passed": true,
+      "Detail": "646 wide, rule 646"
+    },
+    {
+      "Name": "the second pick still shows its two dots",
+      "Passed": true,
+      "Detail": "2 dots"
+    },
+    {
+      "Name": "at the start the first seven picks are drawn, with an arrow on the right only",
+      "Passed": true,
+      "Detail": "range (0, 6), arrows (False, True)"
+    },
+    {
+      "Name": "after five notches and the settled spring the first pick is not drawn and the twelfth is",
+      "Passed": true,
+      "Detail": "range (5, 11), arrows (True, False)"
+    },
+    {
+      "Name": "the capsule did not change width while the picks slid",
+      "Passed": true,
+      "Detail": "646 wide"
+    },
+    {
+      "Name": "the left arrow slides the picks back by the tiles shown, as far as the beginning",
+      "Passed": true,
+      "Detail": "target 0"
+    },
+    {
+      "Name": "a new summon starts the row at the beginning",
+      "Passed": true,
+      "Detail": "range (0, 6)"
+    },
+    {
+      "Name": "the Media page\u0027s line shows the title of what is playing and where it plays",
+      "Passed": true,
+      "Detail": "title \u0022Alpha track\u0022, second line \u0022Alpha-player \u00B7 app\u0022 (simulated session, made-up names)"
+    },
+    {
+      "Name": "while it plays the middle button shows pause",
+      "Passed": true,
+      "Detail": "pause"
+    },
+    {
+      "Name": "the tile of the pick that is playing dances: its bars are drawn and no other tile has any",
+      "Passed": true,
+      "Detail": "bars on the first tile only"
+    },
+    {
+      "Name": "next and play/pause go to the now-playing session and nowhere else",
+      "Passed": true,
+      "Detail": "Next, PlayPause"
+    },
+    {
+      "Name": "a click on the line asks for the player\u0027s window",
+      "Passed": true,
+      "Detail": "1 call(s)"
+    },
+    {
+      "Name": "when it is paused the middle button shows play and the line stays",
+      "Passed": true,
+      "Detail": "Alpha-pla\u2026 \u00B7 app \u00B7 paused"
+    },
+    {
+      "Name": "a paused pick\u0027s bars stand still at the lowest height",
+      "Passed": true,
+      "Detail": "three bars at 5"
+    },
+    {
+      "Name": "the Media page was drawn from a simulated session, playing and paused",
+      "Passed": true,
+      "Detail": "review/media-playing.png and media-paused.png"
+    },
+    {
+      "Name": "when the session is gone the line shows the selected pick again after a short grace",
+      "Passed": true,
+      "Detail": "a pick"
+    },
+    {
+      "Name": "nothing is playing: no tile dances",
+      "Passed": true,
+      "Detail": "no bars"
+    },
+    {
+      "Name": "two folder picks read closed when no Explorer window is open",
+      "Passed": true,
+      "Detail": "simulated list"
+    },
+    {
+      "Name": "a folder pick carries the folder\u0027s own icon when Windows gave one",
+      "Passed": true,
+      "Detail": "Downloads has one, Documents has none (letters)"
+    },
+    {
+      "Name": "a click on a closed folder opens it through the outside door",
+      "Passed": true,
+      "Detail": "recorded, nothing opened"
+    },
+    {
+      "Name": "with Explorer windows on Downloads the pick reads open with the number of windows",
+      "Passed": true,
+      "Detail": "3 windows"
+    },
+    {
+      "Name": "a click on an open folder brings an Explorer window forward and the next click goes to the next one",
+      "Passed": true,
+      "Detail": "bring:501, bring:502"
+    },
+    {
+      "Name": "a quiet Explorer reader does not look while the island is hidden",
+      "Passed": true,
+      "Detail": "0 look(s) in 1.2 s"
+    },
+    {
+      "Name": "it looks again at once when the island is summoned",
+      "Passed": true,
+      "Detail": "woken by the summon"
+    },
+    {
+      "Name": "the last tile of the page is a \u002B and the pick comes before it",
+      "Passed": true,
+      "Detail": "2 tiles"
+    },
+    {
+      "Name": "a click on the \u002B tile opens the second row and the capsule grows to two rows",
+      "Passed": true,
+      "Detail": "drawn height 150"
+    },
+    {
+      "Name": "with the second row open the middle of the two-row capsule belongs to this process, the room below it and beside it to other windows",
+      "Passed": true,
+      "Detail": "middle True, below False, beside False"
+    },
+    {
+      "Name": "the second row holds the second program and not the picked first one",
+      "Passed": true,
+      "Detail": "made-up names"
+    },
+    {
+      "Name": "the \u002B tile reads \u0022Add something\u0022 and how many things are open",
+      "Passed": true,
+      "Detail": "1 open"
+    },
+    {
+      "Name": "plus-row.png was drawn with invented names only",
+      "Passed": true,
+      "Detail": "review/choices"
+    },
+    {
+      "Name": "a click on a tile of the second row jumps to it once and adds nothing",
+      "Passed": true,
+      "Detail": "1 request, 1 picks"
+    },
+    {
+      "Name": "pointing at a tile puts its name in the text block with \u0022open \u00B7 not on the island\u0022 under it",
+      "Passed": true,
+      "Detail": "open \u00B7 not on the island"
+    },
+    {
+      "Name": "adding puts the program on the page being shown and it leaves the second row",
+      "Passed": true,
+      "Detail": "3 tiles, on page: apps, row keys 0, row open True"
+    },
+    {
+      "Name": "the picks file holds the new pick by name and executable, never a path",
+      "Passed": true,
+      "Detail": "temporary picks file"
+    },
+    {
+      "Name": "a second click on the \u002B closes the second row",
+      "Passed": true,
+      "Detail": "row open False"
+    },
+    {
+      "Name": "the second row can be closed by a click on a pick (the runtime does it before the pick\u0027s own action)",
+      "Passed": true,
+      "Detail": "row open False"
+    },
+    {
+      "Name": "a tile that is pressed and moved far enough lifts, the drop zone shows and the text block says so",
+      "Passed": true,
+      "Detail": "lifted True, subtitle let go to remove"
+    },
+    {
+      "Name": "the drop zone is under the capsule",
+      "Passed": true,
+      "Detail": "zone top 98"
+    },
+    {
+      "Name": "drag-off.png was drawn with invented names only",
+      "Passed": true,
+      "Detail": "review/choices"
+    },
+    {
+      "Name": "while a tile is lifted the wheel does nothing",
+      "Passed": true,
+      "Detail": "target unchanged"
+    },
+    {
+      "Name": "letting go over the drop zone removes the pick and closes nothing",
+      "Passed": true,
+      "Detail": "2 tiles, test window still open: True, requests to the outside: 0"
+    },
+    {
+      "Name": "the picks file no longer holds it",
+      "Passed": true,
+      "Detail": "temporary picks file"
+    },
+    {
+      "Name": "letting go over the capsule changes nothing and the tile is back",
+      "Passed": true,
+      "Detail": "picks 1, tile opacity 1"
+    },
+    {
+      "Name": "Esc cancels a drag and the island stays",
+      "Passed": true,
+      "Detail": "phase Open, picks 1"
+    },
+    {
+      "Name": "losing the mouse cancels and never removes",
+      "Passed": true,
+      "Detail": "picks 1"
+    },
+    {
+      "Name": "the \u002B tile cannot be lifted, dragged away it is no click, and a press and release in place is a click",
+      "Passed": true,
+      "Detail": "lifted False, row opened by the drag away False, row open after the click True"
+    },
+    {
+      "Name": "no pick can be lifted while the second row is open",
+      "Passed": true,
+      "Detail": "lifted False"
+    },
+    {
+      "Name": "the main key gives the island the keyboard",
+      "Passed": true,
+      "Detail": "keyboard True"
+    },
+    {
+      "Name": "two Right keys move the selection two tiles along",
+      "Passed": true,
+      "Detail": "selected 2"
+    },
+    {
+      "Name": "Enter does what a click on the selected tile does: it asks the gate to bring the third pick\u0027s window forward",
+      "Passed": true,
+      "Detail": "1 request"
+    },
+    {
+      "Name": "the selection stops at the \u002B tile and does not wrap",
+      "Passed": true,
+      "Detail": "selected 3 of 4"
+    },
+    {
+      "Name": "and at the first tile going back",
+      "Passed": true,
+      "Detail": "selected 0"
+    },
+    {
+      "Name": "Down opens the second row and the selection goes into it, onto the first tile",
+      "Passed": true,
+      "Detail": "row open True, selected 0"
+    },
+    {
+      "Name": "Enter on a tile of the second row jumps to it once and adds nothing",
+      "Passed": true,
+      "Detail": "1 request, 3 picks"
+    },
+    {
+      "Name": "Shift\u002BEnter on it adds it to the page",
+      "Passed": true,
+      "Detail": "4 picks"
+    },
+    {
+      "Name": "Up goes back to the first row, closes the second row and leaves the island open",
+      "Passed": true,
+      "Detail": "row open False, phase Open"
+    },
+    {
+      "Name": "Tab goes to the next page",
+      "Passed": true,
+      "Detail": "page changed: True"
+    },
+    {
+      "Name": "Shift\u002BTab goes back to the page before",
+      "Passed": true,
+      "Detail": "back on the same page: True"
+    },
+    {
+      "Name": "with Ctrl held an arrow does nothing",
+      "Passed": true,
+      "Detail": "selected 0"
+    },
+    {
+      "Name": "a first Delete names the pick and asks to press it again",
+      "Passed": true,
+      "Detail": "pending True, line: Delete again to remove"
+    },
+    {
+      "Name": "a held Delete never removes",
+      "Passed": true,
+      "Detail": "4 picks"
+    },
+    {
+      "Name": "the second Delete removes that pick and leaves one pick fewer",
+      "Passed": true,
+      "Detail": "3 picks"
+    },
+    {
+      "Name": "nothing that is open was closed or touched by the removal, and the self-test\u0027s own test window is still open",
+      "Passed": true,
+      "Detail": "0 requests; test window visible: True"
+    },
+    {
+      "Name": "after the keys the foreground window is the one from before, or foregroundGranted: false",
+      "Passed": true,
+      "Detail": "foregroundGranted: false"
+    },
+    {
+      "Name": "the practice starts with the first step in the balloon and the island set to practise",
+      "Passed": true,
+      "Detail": "step 1: \u0022Press Ctrl\u002BQ\u0022, Step 1 of 9, practice True, hold True"
+    },
+    {
+      "Name": "the main key finishes the first step",
+      "Passed": true,
+      "Detail": "step 2"
+    },
+    {
+      "Name": "the island stays open past its idle time while the person practises",
+      "Passed": true,
+      "Detail": "phase Open"
+    },
+    {
+      "Name": "Right finishes the second step",
+      "Passed": true,
+      "Detail": "step 3"
+    },
+    {
+      "Name": "Enter on a tile finishes the third step and starts nothing",
+      "Passed": true,
+      "Detail": "step 4, 0 calls, 0 activations"
+    },
+    {
+      "Name": "Tab finishes the fourth step",
+      "Passed": true,
+      "Detail": "step 5"
+    },
+    {
+      "Name": "Down finishes the fifth step",
+      "Passed": true,
+      "Detail": "step 6"
+    },
+    {
+      "Name": "Shift\u002BEnter on a tile of the second row finishes the sixth step and adds nothing",
+      "Passed": true,
+      "Detail": "step 7, 3 picks"
+    },
+    {
+      "Name": "Delete on a tile finishes the seventh step",
+      "Passed": true,
+      "Detail": "step 8"
+    },
+    {
+      "Name": "the second Delete finishes the eighth step and removes nothing",
+      "Passed": true,
+      "Detail": "step 9, 0 removals, 3 picks"
+    },
+    {
+      "Name": "Esc closes the island and ends the practice: everything is put back",
+      "Passed": true,
+      "Detail": "ended 1, practice False, hold False, phase Hidden"
+    },
+    {
+      "Name": "\u0022Skip step\u0022 goes to the next step without the island being touched",
+      "Passed": true,
+      "Detail": "step 2, island Hidden"
+    },
+    {
+      "Name": "the main key does not finish a step that is not the first (the person skipped it)",
+      "Passed": true,
+      "Detail": "step 2"
+    },
+    {
+      "Name": "an island closed by mistake is told how to come back and the step waits",
+      "Passed": true,
+      "Detail": "step 2: \u0022The island is closed. Press Ctrl\u002BQ to bring it back.\u0022"
+    },
+    {
+      "Name": "and the words go when it is back",
+      "Passed": true,
+      "Detail": "\u0022\u2190 goes back.\u0022"
+    },
+    {
+      "Name": "\u0022Skip tutorial\u0022 ends the practice at once, puts everything back and closes the island",
+      "Passed": true,
+      "Detail": "ended 1, practice False, phase Closing"
+    },
+    {
+      "Name": "a practice that was skipped changed no pick",
+      "Passed": true,
+      "Detail": "3 picks"
+    },
+    {
+      "Name": "a folder chosen through the pretend chooser is added to the page",
+      "Passed": true,
+      "Detail": "added"
+    },
+    {
+      "Name": "a file chosen through the pretend chooser is added",
+      "Passed": true,
+      "Detail": "added"
+    },
+    {
+      "Name": "both appear on the page, the file always bright and reading \u0022file\u0022",
+      "Passed": true,
+      "Detail": "2 tiles"
+    },
+    {
+      "Name": "a click on the file asks the gate to open it, which refuses and counts it (nothing is opened)",
+      "Passed": true,
+      "Detail": "plan OpenFile"
+    },
+    {
+      "Name": "the picks file holds the places only in the field made for them, and never the account\u0027s name",
+      "Passed": true,
+      "Detail": "a place under the profile folder is written with %USERPROFILE%"
+    },
+    {
+      "Name": "an address typed with a page after the site\u0027s name becomes one site pick, kept by its host only",
+      "Passed": true,
+      "Detail": "example.org"
+    },
+    {
+      "Name": "something that is not a site\u0027s name is refused with a reason and nothing is added",
+      "Passed": true,
+      "Detail": "NOT_A_SITE"
+    },
+    {
+      "Name": "a program chosen from the list is added and stores no path",
+      "Passed": true,
+      "Detail": "added"
+    },
+    {
+      "Name": "the same folder put on the island twice is refused and the answer says where it already is",
+      "Passed": true,
+      "Detail": "Invented Folder is already on the island, on the page Apps."
+    },
+    {
+      "Name": "a folder that was deleted turns grey and says \u0022not found\u0022",
+      "Passed": true,
+      "Detail": "not found"
+    },
+    {
+      "Name": "a click on it answers PICK_TARGET_MISSING and removes nothing",
+      "Passed": true,
+      "Detail": "PICK_TARGET_MISSING"
+    },
+    {
+      "Name": "the chooser that answered was the pretend one, asked only for what the checks asked",
+      "Passed": true,
+      "Detail": "3 questions"
+    },
+    {
+      "Name": "the page is not laid out while another page shows, so nothing was read yet",
+      "Passed": true,
+      "Detail": "laid out False, 0 readings"
+    },
+    {
+      "Name": "the page is laid out now and the console windows and the process list were read once",
+      "Passed": true,
+      "Detail": "1 readings"
+    },
+    {
+      "Name": "the process list is read on a thread of its own, never on the drawing thread",
+      "Passed": true,
+      "Detail": "first read on thread 13, drawing thread 2"
+    },
+    {
+      "Name": "the page shows three tiles in the order the windows were first seen: the two terminals, then the AI program",
+      "Passed": true,
+      "Detail": "3 tiles"
+    },
+    {
+      "Name": "the page has no \u002B tile and no second row, and Down does not open one",
+      "Passed": true,
+      "Detail": "no \u002B tile"
+    },
+    {
+      "Name": "a terminal\u0027s second line reads terminal",
+      "Passed": true,
+      "Detail": "terminal"
+    },
+    {
+      "Name": "a search for a window\u0027s name finds nothing of this page (only the service tiles, which are no window)",
+      "Passed": true,
+      "Detail": "search never reads or lists this page"
+    },
+    {
+      "Name": "the first tile reads the helper\u0027s name and shows two letters on the helper\u0027s colour",
+      "Passed": true,
+      "Detail": "Alpha Helper / AH"
+    },
+    {
+      "Name": "with the helper gone from the list the tile is a plain terminal again, in the same place",
+      "Passed": true,
+      "Detail": "first shell"
+    },
+    {
+      "Name": "the island listens on a pipe name invented for this run (the sessions)",
+      "Passed": true,
+      "Detail": "invented name"
+    },
+    {
+      "Name": "a prompt gives the first tile a working ring, its project and the helper\u0027s name",
+      "Passed": true,
+      "Detail": "Claude Code \u00B7 working"
+    },
+    {
+      "Name": "the working ring is drawn blue, an arc of the circle on a faint track",
+      "Passed": true,
+      "Detail": "read from the tile\u0027s own picture"
+    },
+    {
+      "Name": "a permission request gives a needs-you ring, orange, full and still",
+      "Passed": true,
+      "Detail": "read from the tile\u0027s own picture"
+    },
+    {
+      "Name": "the tool that was asked about finishing makes the ring working again",
+      "Passed": true,
+      "Detail": "Working"
+    },
+    {
+      "Name": "Stop gives a finished ring, green, full and still, and the notice is raised as before",
+      "Passed": true,
+      "Detail": "1 notice"
+    },
+    {
+      "Name": "SessionEnd takes the ring away",
+      "Passed": true,
+      "Detail": "Claude Code"
+    },
+    {
+      "Name": "Codex\u0027s prompt gives the first tile a working ring, its project and Codex\u0027s name, drawn blue",
+      "Passed": true,
+      "Detail": "island / Codex \u00B7 working"
+    },
+    {
+      "Name": "Codex\u0027s Stop gives a finished ring, green, full and still",
+      "Passed": true,
+      "Detail": "Finished"
+    },
+    {
+      "Name": "with the helper\u0027s process gone the tile is a plain terminal again, and the sessions are empty",
+      "Passed": true,
+      "Detail": "0 sessions"
+    },
+    {
+      "Name": "a click on the second tile asks the one outside door to bring that window forward, once, and selects that tile",
+      "Passed": true,
+      "Detail": "1 requests"
+    },
+    {
+      "Name": "the X does nothing on this page, whatever was clicked",
+      "Passed": true,
+      "Detail": "dimmed"
+    },
+    {
+      "Name": "Delete asks about nothing: no tile of this page is a pick",
+      "Passed": true,
+      "Detail": "pending "
+    },
+    {
+      "Name": "a title that changed redraws that one tile in its place, and the other tiles are the very ones that were drawn before",
+      "Passed": true,
+      "Detail": "same tile 0: True, new tile 2: True, 3 tiles"
+    },
+    {
+      "Name": "a new window widens the capsule by one tile, with no page swap, and the selection stays on its window",
+      "Passed": true,
+      "Detail": "406 to 454"
+    },
+    {
+      "Name": "closing the first window leaves three tiles and the selection on a tile, the window it was on",
+      "Passed": true,
+      "Detail": "selected 0"
+    },
+    {
+      "Name": "with no terminal open the page\u0027s one line reads \u0022No terminal is open\u0022",
+      "Passed": true,
+      "Detail": "\u0022No terminal is open\u0022"
+    },
+    {
+      "Name": "the page was drawn into review/choices/terminals-page.png, invented names only",
+      "Passed": true,
+      "Detail": "a snapshot proves it draws, not that it looks right"
+    },
+    {
+      "Name": "the five states were drawn into review/choices/terminal-states.png, invented names only",
+      "Passed": true,
+      "Detail": "a snapshot proves it draws, not that it looks right"
+    },
+    {
+      "Name": "after the page the foreground window is the one from before, or foregroundGranted: false",
+      "Passed": true,
+      "Detail": "foregroundGranted: false"
+    },
+    {
+      "Name": "once the island has left, the page is no longer laid out and the process list is not read again",
+      "Passed": true,
+      "Detail": "0 readings after leaving"
+    },
+    {
+      "Name": "the island says in words what it shows, for a screen reader: its window has a name, and its root names the page and the selected tile",
+      "Passed": true,
+      "Detail": "\u0022Island, Media: Alpha Player, closed, 1 of 2\u0022"
+    },
+    {
+      "Name": "on the Media page in Do not disturb with something playing, the island draws no more frames than the screen refreshes",
+      "Passed": true,
+      "Detail": "442 frames in 3.0 s on a screen of 165 Hz (495 refreshes)"
+    },
+    {
+      "Name": "with the fixed-rate light at rest in Focus, the rim and the bloom are rendered at most 40 times a second, and nothing else is rendered",
+      "Passed": true,
+      "Detail": "71 renders of the light in 3.0 s on a screen of 165 Hz (at most 122: 40 a second), 0 renders of every other layer"
+    },
+    {
+      "Name": "in Focus, on a page of picks with nothing playing, at rest for one lap of the light, only the layers the moving light is drawn in are rendered again",
+      "Passed": true,
+      "Detail": "rendered again: bloom, rim; every other layer stood still"
+    },
+    {
+      "Name": "in Focus the frame callback runs (the light moves)",
+      "Passed": true,
+      "Detail": "runs True"
+    },
+    {
+      "Name": "in DND, at rest: no frame is drawn at all (no frame callback, no layer rendered again)",
+      "Passed": true,
+      "Detail": "0 frames in 1.5 s"
+    },
+    {
+      "Name": "in DND, an input wakes the frame callback at once",
+      "Passed": true,
+      "Detail": "runs True"
+    },
+    {
+      "Name": "in DND, the capsule is quiet again after the page changed and settled",
+      "Passed": true,
+      "Detail": "frame callback let go of again"
+    },
+    {
+      "Name": "in DND, a mouse move over the island draws no frame, renders no layer and does not wake the frame callback",
+      "Passed": true,
+      "Detail": "0 frames after 60 moves"
+    },
+    {
+      "Name": "in DND, with no frame callback the island still leaves after its idle time",
+      "Passed": true,
+      "Detail": "was quiet True, left True"
+    },
+    {
+      "Name": "in DND, with no frame callback the island still refreshes the playing line",
+      "Passed": true,
+      "Detail": "quiet True, refreshed True"
+    },
+    {
+      "Name": "in DND, with no frame callback the process list is still read while the Terminals page is laid out",
+      "Passed": true,
+      "Detail": "2 readings in 4.5 s"
+    },
+    {
+      "Name": "in DND, a title that changed is drawn in its tile",
+      "Passed": true,
+      "Detail": "second tile renamed"
+    },
+    {
+      "Name": "in DND, a tile coming is drawn and the capsule takes its new width",
+      "Passed": true,
+      "Detail": "3 tiles"
+    },
+    {
+      "Name": "in DND, a session\u0027s state changing wakes the island: the working ring turns on the frame callback",
+      "Passed": true,
+      "Detail": "working True, runs True"
+    },
+    {
+      "Name": "Direct2D\u0027s rounded rectangle starts where the straight part of its left edge begins and runs clockwise, as the graphics-card light assumes (evidence about the compositor\u0027s own path, not proof)",
+      "Passed": true,
+      "Detail": "starts at (0, 40), next point (52.16, 0), tangent (0, -1)"
+    },
+    {
+      "Name": "an island made by a stage draws the light as before unless the stage asks otherwise (the pictures and checks were written for it)",
+      "Passed": true,
+      "Detail": "kind AsBefore, graphics-card light active False"
+    },
+    {
+      "Name": "an island that asks for the graphics-card light and cannot make it draws the light the old way, by itself",
+      "Passed": true,
+      "Detail": "graphics-card light active False, rim and bloom drawn again: 2 of 2, unavailable reason NOT_MADE"
+    },
+    {
+      "Name": "the light is drawn by the compositor: its windows are shown, the old rim and bloom are not drawn, and the compositor was set going",
+      "Passed": true,
+      "Detail": "active True, shown True, animating True"
+    },
+    {
+      "Name": "the compositor\u0027s objects were given the old light\u0027s numbers (the rim, the arcs, the glow, the speed) and the outline the old rim is drawn on",
+      "Passed": true,
+      "Detail": "numbers equal True"
+    },
+    {
+      "Name": "with the graphics-card light, at rest in Focus on a page of picks, for one lap of the light the app draws no frame and renders no layer",
+      "Passed": true,
+      "Detail": "0 frames, layers all unchanged over a lap"
+    },
+    {
+      "Name": "the light\u0027s two windows are this program\u0027s own, topmost, never activated, out of Alt\u002BTab and let every click through",
+      "Passed": true,
+      "Detail": "own True, styles True"
+    },
+    {
+      "Name": "the lit rim lies directly above the island\u0027s window and the glow directly above its shadow window",
+      "Passed": true,
+      "Detail": "above the island\u0027s window: the rim; above the shadow: the glow"
+    },
+    {
+      "Name": "a click at the middle of the capsule reaches the capsule, not the light\u0027s windows",
+      "Passed": true,
+      "Detail": "the window under the pointer is the capsule"
+    },
+    {
+      "Name": "the glow is cut out of the island\u0027s inside as the old bloom is: shown just outside the outline, not at its middle and not just inside it",
+      "Passed": true,
+      "Detail": "just outside True, middle False, just inside False"
+    },
+    {
+      "Name": "a lifted tile gets the old light: the compositor\u0027s windows go and the rim and the bloom are drawn again",
+      "Passed": true,
+      "Detail": "active False, shown False, old layers drawn 2 of 2"
+    },
+    {
+      "Name": "when the tile is let go the graphics-card light is back and goes round again",
+      "Passed": true,
+      "Detail": "active True"
+    },
+    {
+      "Name": "after the light was shown again its rim lies directly above the island\u0027s window and its glow directly above the shadow window",
+      "Passed": true,
+      "Detail": "above the island\u0027s window: the rim"
+    },
+    {
+      "Name": "when the island\u0027s window is raised above the light the next frame puts the light back directly above it",
+      "Passed": true,
+      "Detail": "raised above the rim: True; the rim is back: True"
+    },
+    {
+      "Name": "after the lift the compositor\u0027s animation was started where the clock says",
+      "Passed": true,
+      "Detail": "offset 0.7133, the clock\u0027s place 0.7133, started 13 ms ago"
+    },
+    {
+      "Name": "when the island is hidden the light\u0027s windows are gone too",
+      "Passed": true,
+      "Detail": "active False, shown False, windows visible False"
+    },
+    {
+      "Name": "while the pill is up the compositor\u0027s windows are not shown",
+      "Passed": true,
+      "Detail": "pill True, active False, shown False"
+    },
+    {
+      "Name": "while the notice is up the compositor\u0027s windows are not shown",
+      "Passed": true,
+      "Detail": "notice True, active False, shown False"
+    },
+    {
+      "Name": "when the capsule comes back after the pill and the notice the graphics-card light is back and was started where the clock says",
+      "Passed": true,
+      "Detail": "the numbers are in the check of the lift"
+    },
+    {
+      "Name": "at least one screen was read",
+      "Passed": true,
+      "Detail": "1 screen(s)"
+    },
+    {
+      "Name": "after a summon the capsule window and the shadow window are where Island.Core says: centred on the work area, at its top",
+      "Passed": true,
+      "Detail": "same rectangle"
+    },
+    {
+      "Name": "a screen narrower than the island shows fewer picks and the capsule fits it; the real screen shows seven",
+      "Passed": true,
+      "Detail": "5 picks on the narrow screen, 7 on this one"
+    },
+    {
+      "Name": "a visible island is not placed again",
+      "Passed": true,
+      "Detail": "0 new choice(s)"
+    },
+    {
+      "Name": "a borderless test window handed its own rectangle as its screen is a fullscreen program",
+      "Passed": true,
+      "Detail": "FullscreenProgram"
+    },
+    {
+      "Name": "the same window on the real screen is not",
+      "Passed": true,
+      "Detail": "Clear"
+    },
+    {
+      "Name": "over a game in exclusive fullscreen the island never appears, asked or not",
+      "Passed": true,
+      "Detail": "key, start-up and page key all refused"
+    },
+    {
+      "Name": "over a fullscreen program it appears when asked by a key and not by itself",
+      "Passed": true,
+      "Detail": "by itself False, asked True"
+    },
+    {
+      "Name": "over a presentation it appears when asked and not by itself",
+      "Passed": true,
+      "Detail": "by itself False, asked True"
+    },
+    {
+      "Name": "over nothing it appears, also by itself",
+      "Passed": true,
+      "Detail": "by itself True"
+    },
+    {
+      "Name": "flipping the switch for starting with Windows through the screen\u0027s own code is refused by the gate and counted, and writes nothing",
+      "Passed": true,
+      "Detail": "1 refusal(s) counted (switching off with nothing of ours in the list has nothing to delete); the settings file still says off"
+    },
+    {
+      "Name": "the settings file remembers only the yes or no of the switch, and it is off by default",
+      "Passed": true,
+      "Detail": "off"
+    },
+    {
+      "Name": "the bridge for the add-on listens on this computer only",
+      "Passed": true,
+      "Detail": "127.0.0.1, a port of its own"
+    },
+    {
+      "Name": "pretend add-on: a wrong origin is refused with 403",
+      "Passed": true,
+      "Detail": "scripted step"
+    },
+    {
+      "Name": "pretend add-on: no origin is refused with 403",
+      "Passed": true,
+      "Detail": "scripted step"
+    },
+    {
+      "Name": "pretend add-on: hello is answered with welcome",
+      "Passed": true,
+      "Detail": "scripted step"
+    },
+    {
+      "Name": "pretend add-on: tabs open",
+      "Passed": true,
+      "Detail": "scripted step"
+    },
+    {
+      "Name": "pretend add-on: a second tab of the same site is counted",
+      "Passed": true,
+      "Detail": "scripted step"
+    },
+    {
+      "Name": "pretend add-on: playing starts on the first tab",
+      "Passed": true,
+      "Detail": "scripted step"
+    },
+    {
+      "Name": "pretend add-on: playing starts on the second tab and it takes over",
+      "Passed": true,
+      "Detail": "scripted step"
+    },
+    {
+      "Name": "pretend add-on: an icon arrives for a tab",
+      "Passed": true,
+      "Detail": "scripted step"
+    },
+    {
+      "Name": "pretend add-on: a broken frame is ignored and the connection stays",
+      "Passed": true,
+      "Detail": "scripted step"
+    },
+    {
+      "Name": "pretend add-on: tabs close",
+      "Passed": true,
+      "Detail": "scripted step"
+    },
+    {
+      "Name": "pretend add-on: closing the connection drops its tabs",
+      "Passed": true,
+      "Detail": "scripted step"
+    },
+    {
+      "Name": "without the add-on the site picks read \u0022website\u0022 and are not marked closed",
+      "Passed": true,
+      "Detail": "whether a site is open cannot be known"
+    },
+    {
+      "Name": "the pretend add-on connects with the add-on\u0027s own announcement",
+      "Passed": true,
+      "Detail": "hello, welcome"
+    },
+    {
+      "Name": "with the add-on connected a site pick is open with the number of its tabs, and a second site is its own pick",
+      "Passed": true,
+      "Detail": "2 tabs / open"
+    },
+    {
+      "Name": "a site that has no tab reads closed",
+      "Passed": true,
+      "Detail": "closed"
+    },
+    {
+      "Name": "a site pick whose tab has sent no icon shows its letters, never a borrowed logo",
+      "Passed": true,
+      "Detail": "no picture before the add-on sends one"
+    },
+    {
+      "Name": "after the add-on sends the tab\u0027s icon the site\u0027s tile shows it",
+      "Passed": true,
+      "Detail": "the picture of the tab, made into the tile\u0027s disc"
+    },
+    {
+      "Name": "when the tab\u0027s address changes its icon is dropped and the tiles read letters again",
+      "Passed": true,
+      "Detail": "an icon belongs to an address"
+    },
+    {
+      "Name": "a click on an open site goes to its newest tab through the tab door, which the self-test gate refuses and counts",
+      "Passed": true,
+      "Detail": "plan BringForward"
+    },
+    {
+      "Name": "a tab that makes sound and says nothing: the line shows Windows\u0027 title for the browser, as a tab of that site",
+      "Passed": true,
+      "Detail": "YouTube"
+    },
+    {
+      "Name": "and that site\u0027s tile dances",
+      "Passed": true,
+      "Detail": "the pick of the site"
+    },
+    {
+      "Name": "the buttons go to Windows\u0027 session for the browser, not to a tab",
+      "Passed": true,
+      "Detail": "no tab command was made"
+    },
+    {
+      "Name": "a click on the line goes to the tab, through the tab door (refused and counted under the self-test)",
+      "Passed": true,
+      "Detail": "nothing was sent to a browser"
+    },
+    {
+      "Name": "the Now-playing line follows the playing tab",
+      "Passed": true,
+      "Detail": "YouTube"
+    },
+    {
+      "Name": "the tab\u0027s own report replaced Windows\u0027 words and the item stayed the same one: the line is still there and can be controlled",
+      "Passed": true,
+      "Detail": "the same tab"
+    },
+    {
+      "Name": "the buttons go to that tab through the tab door (refused and counted under the self-test)",
+      "Passed": true,
+      "Detail": "nothing was sent to a browser"
+    },
+    {
+      "Name": "when the add-on goes away the site picks read \u0022website\u0022 again",
+      "Passed": true,
+      "Detail": "tabs dropped"
+    },
+    {
+      "Name": "a main key that Windows says another program holds is refused and the old key stays in force",
+      "Passed": true,
+      "Detail": "refused with a reason"
+    },
+    {
+      "Name": "a main key changed through the screen\u0027s own code is in force and saved at once",
+      "Passed": true,
+      "Detail": "Ctrl\u002BAlt\u002BK"
+    },
+    {
+      "Name": "restore default brings the original main key back and saves it",
+      "Passed": true,
+      "Detail": "Ctrl\u002BQ"
+    },
+    {
+      "Name": "a plain key with no modifier is refused",
+      "Passed": true,
+      "Detail": "typing must stay typing"
+    },
+    {
+      "Name": "a settings file that still holds the old movingLight field loads",
+      "Passed": true,
+      "Detail": "Loaded"
+    },
+    {
+      "Name": "saving the settings again does not write the moving light",
+      "Passed": true,
+      "Detail": "movingLight is not in the file"
+    },
+    {
+      "Name": "a snapshot of each section of the settings screen was drawn",
+      "Passed": true,
+      "Detail": "review/settings: key, pages, island, scenes, mode, glass, agents, general (a snapshot proves it draws, not that it looks right)"
+    },
+    {
+      "Name": "snapshots of the \u0022Add\u2026\u0022 panel (open, narrowed list, an address understood, nonsense refused) were drawn with an invented list of programs and no path",
+      "Passed": true,
+      "Detail": "review/settings (a snapshot proves it draws, not that it looks right)"
+    },
+    {
+      "Name": "a pick can be moved to another page through the session the screen uses, and it is on exactly one page",
+      "Passed": true,
+      "Detail": "moved to Folders"
+    },
+    {
+      "Name": "the settings screen\u0027s ball grows into the full screen without a jump: it starts small, grows over many samples and no sample is more than 40 percent of the full width from the one before",
+      "Passed": true,
+      "Detail": "111 samples, from 30 to 1996 wide, biggest step 229"
+    },
+    {
+      "Name": "the settings screen expands from a ball to the full screen with the island\u0027s spring",
+      "Passed": true,
+      "Detail": "phase Open"
+    },
+    {
+      "Name": "a page made on the screen is accepted",
+      "Passed": true,
+      "Detail": "ok"
+    },
+    {
+      "Name": "the new page appears on the island with its colour and is reached with the next number key",
+      "Passed": true,
+      "Detail": "8 pages by number"
+    },
+    {
+      "Name": "the screen closes by the reverse motion",
+      "Passed": true,
+      "Detail": "phase Closed"
+    },
+    {
+      "Name": "after the screen closed the foreground window is the one from before",
+      "Passed": true,
+      "Detail": "foregroundGranted: false"
+    },
+    {
+      "Name": "Esc closes the settings screen",
+      "Passed": true,
+      "Detail": "phase Closed"
+    },
+    {
+      "Name": "the bridge for the row\u0027s check listens on a port of its own",
+      "Passed": true,
+      "Detail": "a port of its own, never the real ones"
+    },
+    {
+      "Name": "with no add-on connected the row reads \u0022Not connected\u0022",
+      "Passed": true,
+      "Detail": "Not connected"
+    },
+    {
+      "Name": "after the add-on\u0027s hello the open screen\u0027s row reads \u0022Connected\u0022",
+      "Passed": true,
+      "Detail": "Connected"
+    },
+    {
+      "Name": "a snapshot of the General section with the add-on connected was drawn",
+      "Passed": true,
+      "Detail": "review/settings/addon-row.png (a snapshot proves it draws, not that it looks right)"
+    },
+    {
+      "Name": "after the add-on leaves the row reads \u0022Not connected\u0022 again",
+      "Passed": true,
+      "Detail": "Not connected"
+    },
+    {
+      "Name": "before the first start there is no settings file",
+      "Passed": true,
+      "Detail": "temporary data folder"
+    },
+    {
+      "Name": "the first copy starts and holds the single-instance lock",
+      "Passed": true,
+      "Detail": "AppHost.Start"
+    },
+    {
+      "Name": "the settings file was created with the defaults when absent",
+      "Passed": true,
+      "Detail": "created by the first start, read back equal to the defaults (but for the mode, which the self-test names Focus, and the stand-in main key, when another copy holds the real one)"
+    },
+    {
+      "Name": "the registered keybinds are exactly the entries the settings contain",
+      "Passed": true,
+      "Detail": "1 registered (Ctrl\u002BAlt\u002BShift\u002BF11); 1 accepted by Windows; a refused one means another program on this laptop registered it first"
+    },
+    {
+      "Name": "the tray icon is shown and drawn in code",
+      "Passed": true,
+      "Detail": "NotifyIcon visible with a drawn icon"
+    },
+    {
+      "Name": "the Terminals page is there and, in the ordinary world of the self-test, has no tile (it is handed no real window, console or process list)",
+      "Passed": true,
+      "Detail": "0 tiles, 0 readings"
+    },
+    {
+      "Name": "the tray\u0027s Mode entry lists Focus, Vibe and DND with the one that is on ticked",
+      "Passed": true,
+      "Detail": "Focus,Vibe,DND; ticked Focus; mode Focus"
+    },
+    {
+      "Name": "choosing DND in the tray\u0027s Mode entry puts it in force at once (the table the gate asks, the island\u0027s edge), ticks it and saves it",
+      "Passed": true,
+      "Detail": "settings DND, gate DND, ticked DND, file DND"
+    },
+    {
+      "Name": "the key for the next mode goes Focus, Vibe, Do not disturb, Focus again",
+      "Passed": true,
+      "Detail": "Focus \u003E Vibe \u003E DND"
+    },
+    {
+      "Name": "the tray\u0027s Glass entry lists Approved and Darker (and Blur while it is offered) with the glass in use ticked",
+      "Passed": true,
+      "Detail": "Approved,Darker,Blur; ticked Approved"
+    },
+    {
+      "Name": "choosing Darker in the tray\u0027s Glass entry puts it in force and ticks it",
+      "Passed": true,
+      "Detail": "in use Darker, ticked Darker"
+    },
+    {
+      "Name": "the warm-up after a silent start (the first summon\u0027s work done in advance) builds its island and the settings view in no window, shows nothing, and ends",
+      "Passed": true,
+      "Detail": "finished True, windows 2 to 2, real island frames 0, phase Hidden"
+    },
+    {
+      "Name": "a second copy exits with the ALREADY_RUNNING code",
+      "Passed": true,
+      "Detail": "exit code 4"
+    },
+    {
+      "Name": "the running copy showed ALREADY_RUNNING and logged it",
+      "Passed": true,
+      "Detail": "a process that has exited cannot show anything, so the first copy does"
+    },
+    {
+      "Name": "a copy with a short idle time starts",
+      "Passed": true,
+      "Detail": "AppHost.Start"
+    },
+    {
+      "Name": "the short idle time was read from the settings file",
+      "Passed": true,
+      "Detail": "2 s"
+    },
+    {
+      "Name": "an open island closed by itself after the idle time",
+      "Passed": true,
+      "Detail": "closed 2011 ms after the summon, idle time 2000 ms"
+    },
+    {
+      "Name": "a settings file that cannot be read gives SETTINGS_UNREADABLE at the start and is left exactly as it was",
+      "Passed": true,
+      "Detail": "code SETTINGS_UNREADABLE, untouched True"
+    },
+    {
+      "Name": "a settings file written by a newer version gives SETTINGS_FROM_NEWER_VERSION at the start and is left exactly as it was",
+      "Passed": true,
+      "Detail": "code SETTINGS_FROM_NEWER_VERSION, untouched True"
+    },
+    {
+      "Name": "a page\u0027s key that another program holds gives HOTKEY_TAKEN at the start, a balloon is raised, and the key stays in the settings file for the next start",
+      "Passed": true,
+      "Detail": "code HOTKEY_TAKEN, balloons 1, the page\u0027s key kept in the file True"
+    },
+    {
+      "Name": "a pages.json that cannot be read is left exactly as it was and the island starts on its defaults (no words are shown for it today)",
+      "Passed": true,
+      "Detail": "code none, untouched True"
+    },
+    {
+      "Name": "a picks.json that cannot be read is left exactly as it was and the island starts on its defaults (no words are shown for it today)",
+      "Passed": true,
+      "Detail": "code none, untouched True"
+    },
+    {
+      "Name": "a scenes.json that cannot be read is left exactly as it was and the island starts on its defaults (no words are shown for it today)",
+      "Passed": true,
+      "Detail": "code none, untouched True"
+    },
+    {
+      "Name": "the island was still open at the end of the measured stretch",
+      "Passed": true,
+      "Detail": "phase Open"
+    },
+    {
+      "Name": "performance figures were measured and written to perf.md",
+      "Passed": true,
+      "Detail": "records, not gates"
+    },
+    {
+      "Name": "when Blur is chosen and cannot be had the Approved glass is used and the reason is said once, however often Blur is chosen",
+      "Passed": true,
+      "Detail": "said 1 time(s): NOT_SHOWN; glass in use Approved"
+    },
+    {
+      "Name": "the blur layer was created or its reason for being unavailable is a short code",
+      "Passed": true,
+      "Detail": "available"
+    },
+    {
+      "Name": "with Blur chosen the layer is shown while the island is open",
+      "Passed": true,
+      "Detail": "shown True"
+    },
+    {
+      "Name": "the blur layer did not take the foreground",
+      "Passed": true,
+      "Detail": "same window in front as before"
+    },
+    {
+      "Name": "the blur layer is hidden when the island is",
+      "Passed": true,
+      "Detail": "no layer on the screen while hidden"
+    },
+    {
+      "Name": "every summon with the Blur glass takes the same time to within one refresh interval (EVALS M4)",
+      "Passed": true,
+      "Detail": "spread 4.52 ms, refresh interval 12.15 ms"
+    },
+    {
+      "Name": "switching back to the approved glass takes the layer away",
+      "Passed": true,
+      "Detail": "the layer is hidden and no longer followed"
+    },
+    {
+      "Name": "the real lock, the real main key and the first real port are each held by the helper or already held by another copy",
+      "Passed": true,
+      "Detail": "lock taken, key taken, port taken"
+    },
+    {
+      "Name": "a close request aimed at a window of another process is refused by the gate and counted, and that window stays",
+      "Passed": true,
+      "Detail": "the window belongs to the helper: True; refused: 1"
+    },
+    {
+      "Name": "the self-test\u0027s own copy starts while the real lock is held elsewhere",
+      "Passed": true,
+      "Detail": "its lock has a name of its own"
+    },
+    {
+      "Name": "the stand-in key replaces the real main key when Windows holds it elsewhere, and is in the settings file",
+      "Passed": true,
+      "Detail": "Ctrl\u002BAlt\u002BShift with F11, F10 or F9"
+    },
+    {
+      "Name": "the self-test\u0027s own settings name the mode Focus, and the table and the island\u0027s edge follow the settings\u0027 mode",
+      "Passed": true,
+      "Detail": "mode Focus"
+    },
+    {
+      "Name": "every key the settings contain is accepted by Windows",
+      "Passed": true,
+      "Detail": "1 registered"
+    },
+    {
+      "Name": "a summon by the stand-in key works",
+      "Passed": true,
+      "Detail": "the island left the hidden state"
+    },
+    {
+      "Name": "the helper is still alive while this is proven",
+      "Passed": true,
+      "Detail": "it holds the lock, key and port until the stage kills it"
+    },
+    {
+      "Name": "the helper is gone before the stage ends",
+      "Passed": true,
+      "Detail": "ended"
+    },
+    {
+      "Name": "the outside gate refuses starting programs, opening folders and sending media commands under the self-test and counts them",
+      "Passed": true,
+      "Detail": "20 refused before this check, by kind: BringForward 2, StartProgram 4, OpenFolder 2, OpenAddress 2, PlaySound 1, EditAgentSettings 6, OpenFile 1, WriteStartupValue 1, TabCommand 3, CloseWindow 1, MediaCommand 1"
+    }
+  ],
+  "info": {
+    "arcMove": "arc centre 0.28 -\u003E 0.51 of the outline (clock says 0.28 -\u003E 0.51); moved 0.23",
+    "blurAvailable": true,
+    "blurSummons": {
+      "durationsMs": [
+        1103,
+        1101.3,
+        1100.2,
+        1104.7,
+        1102.6
+      ],
+      "spreadMs": 4.52,
+      "refreshMs": 12.15,
+      "lateFrames": 69,
+      "frames": 934
+    },
+    "blurUnavailableReason": "none",
+    "blurUnits": "radius 10 -\u003E sigma 3.33 (radius/sigma 3.00); radius 30 -\u003E sigma 9.99 (radius/sigma 3.00); radius 75 -\u003E sigma 24.97 (radius/sigma 3.00); used: radius = 3 x sigma",
+    "bridgeCounts": {
+      "Announced": 1,
+      "Refused": 2,
+      "BadFrames": 1,
+      "ClosedForBadFrames": 0
+    },
+    "clickCheckNote": "WindowFromPoint is used as a stand-in for where a real click lands on a layered window; whether it tells the truth is UNVERIFIED. A real click on a browser tab right under the island is NEEDS-HUMAN-VERIFY.",
+    "contrastThreshold": "4.5:1 (WCAG 2.2 1.4.3, from the work order; not re-checked at w3.org by this run)",
+    "cpuOpenPercentOfOneCore": {
+      "approved": 68.2,
+      "blur": 75
+    },
+    "dataDir": "fresh temporary folder",
+    "direct2dRoundedRectangle": {
+      "worked": true,
+      "length": 1371.36,
+      "expected": 1371.33,
+      "start": [
+        0,
+        40
+      ],
+      "next": [
+        52.16,
+        0
+      ],
+      "tangent": [
+        0,
+        -1
+      ]
+    },
+    "explorerEntries": 0,
+    "explorerEntriesWithKnownFolder": 0,
+    "explorerIconPixels": 256,
+    "fixedRateLight": {
+      "refreshHz": 165,
+      "seconds": 3,
+      "lightRenders": 71,
+      "otherRenders": 0,
+      "frames": 114
+    },
+    "focusAfterMotion": "same",
+    "focusAfterShow": "same",
+    "foldersLiveCheck": "NO-VERIFIER: the self-test does not touch File Explorer; only a count is recorded",
+    "foregroundChangesDuringMotion": 0,
+    "foregroundGranted": false,
+    "foregroundGrantedForBringForward": false,
+    "foregroundGrantedForKeys": false,
+    "foregroundGrantedForPickClick": false,
+    "foregroundGrantedForSettings": false,
+    "foregroundGrantedForSetup": false,
+    "foregroundGrantedForTerminals": false,
+    "frameIntervals": {
+      "frames": 971,
+      "medianMs": 12.06,
+      "longestMs": 54.62,
+      "lateFrames": 63,
+      "lateMeans": "later than twice the median frame interval",
+      "lateAtMsAfterSummon": [
+        "62:25",
+        "401:30",
+        "549:26",
+        "576:27",
+        "614:37",
+        "651:37",
+        "689:38",
+        "724:35",
+        "752:28",
+        "803:51",
+        "1500:27",
+        "1525:25",
+        "1647:25",
+        "32:27",
+        "78:25",
+        "171:28",
+        "545:24",
+        "572:27",
+        "601:29",
+        "635:34",
+        "687:51",
+        "717:30",
+        "748:31",
+        "1438:29",
+        "1479:26",
+        "1505:25",
+        "2068:33",
+        "457:32",
+        "555:26",
+        "609:31",
+        "640:31",
+        "670:30",
+        "697:27",
+        "722:25",
+        "793:26",
+        "836:42",
+        "1476:24",
+        "1501:25",
+        "1551:26",
+        "1659:25",
+        "223:28",
+        "567:27",
+        "599:32",
+        "629:30",
+        "684:55",
+        "712:28",
+        "739:27",
+        "1493:25",
+        "1520:27",
+        "1548:27",
+        "1596:36",
+        "2306:25",
+        "537:24",
+        "583:46",
+        "610:27",
+        "643:33",
+        "671:28",
+        "701:31",
+        "730:29",
+        "799:24",
+        "1104:38",
+        "1497:26",
+        "1729:30"
+      ]
+    },
+    "framesOnMediaInDnd": {
+      "frames": 442,
+      "seconds": 3,
+      "refreshHz": 165
+    },
+    "glassContrastOnLight": [
+      {
+        "glass": "approved",
+        "tintAlpha": 0.6,
+        "titleContrast": 3.66,
+        "behindTitle": "#85858B"
+      },
+      {
+        "glass": "darker",
+        "tintAlpha": 0.7,
+        "titleContrast": 4.69,
+        "behindTitle": "#73737A"
+      }
+    ],
+    "graphicsLightHResult": 0,
+    "graphicsLightReason": "available",
+    "installedPrograms": 166,
+    "isolation": {
+      "realLock": "taken",
+      "realMainKey": "taken",
+      "realPort": "taken"
+    },
+    "keybinds": [
+      {
+        "action": "showHide",
+        "combo": "Ctrl\u002BAlt\u002BShift\u002BF11",
+        "accepted": true,
+        "windowsErrorWhenRefused": null
+      }
+    ],
+    "mainKeyStandIn": true,
+    "mediaManagerAvailable": true,
+    "mediaSessions": 1,
+    "notificationState": "5",
+    "notifyListeningMs": "341",
+    "notifyNobodyListeningMs": "565",
+    "notifyRunCpuMs": 250,
+    "notifyRunMs": 263.6,
+    "outsideGate": {
+      "allowed": 43,
+      "refused": {
+        "BringForward": 2,
+        "StartProgram": 4,
+        "OpenFolder": 2,
+        "OpenAddress": 2,
+        "PlaySound": 1,
+        "EditAgentSettings": 6,
+        "OpenFile": 1,
+        "WriteStartupValue": 1,
+        "TabCommand": 3,
+        "CloseWindow": 1,
+        "MediaCommand": 1
+      }
+    },
+    "perf": {
+      "cpuWhileHiddenPercentOfOneCore": 0.7,
+      "cpuWhileOpenPercentOfOneCore": 70.59,
+      "framesDrawnWhileOpen": 544,
+      "memoryWorkingSetMbHiddenBefore": 319.7,
+      "memoryWorkingSetMbOpen": 261.1,
+      "memoryWorkingSetMbHiddenAfter": 259.3,
+      "windowSizeDip": "680 x 268",
+      "writtenTo": "perf.md"
+    },
+    "pickKeyAcceptedByWindows": true,
+    "placementChoices": 1,
+    "pretendAddonSteps": {
+      "total": 11,
+      "passed": 11
+    },
+    "proposalDarkerGlass": "dark tint at 0.70 instead of 0.6 reaches 4.5:1 for all five; shown on terminals",
+    "refreshIntervalMs": 12.06,
+    "screens": 1,
+    "starterPicksMade": 14,
+    "starterProgramsFound": 7,
+    "starterProgramsTotal": 16,
+    "startupRefusals": 1,
+    "summonDurationsMs": [
+      1100.7,
+      1100.8,
+      1104.6,
+      1104.1,
+      1103.9
+    ],
+    "summonSeenOnFirstFrameMs": [
+      1109.8,
+      1100.8,
+      1104.6,
+      1104.5,
+      1103.9
+    ],
+    "summonSeenSpreadMs": 9.04,
+    "takenKeyBalloonsAfterStart": 1,
+    "titleContrastMeetsThreshold": false,
+    "titleContrastOnLight": [
+      {
+        "category": "media",
+        "titleRatio": 3.66,
+        "subtitleRatio": 2.95,
+        "glass": "#85858B"
+      },
+      {
+        "category": "folders",
+        "titleRatio": 3.64,
+        "subtitleRatio": 2.94,
+        "glass": "#85868B"
+      },
+      {
+        "category": "apps",
+        "titleRatio": 3.66,
+        "subtitleRatio": 2.95,
+        "glass": "#84858C"
+      },
+      {
+        "category": "vibe",
+        "titleRatio": 3.64,
+        "subtitleRatio": 2.94,
+        "glass": "#84868C"
+      },
+      {
+        "category": "browser",
+        "titleRatio": 3.64,
+        "subtitleRatio": 2.94,
+        "glass": "#85868C"
+      },
+      {
+        "category": "terminals",
+        "titleRatio": 3.63,
+        "subtitleRatio": 2.93,
+        "glass": "#85868B"
+      }
+    ],
+    "twoScreenChecks": "NO-VERIFIER \u2014 one screen",
+    "windowHooksInstalled": 5,
+    "windowSizeDip": "680 x 268",
+    "windowsListed": 5
+  }
+}

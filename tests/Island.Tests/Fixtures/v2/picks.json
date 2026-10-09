@@ -1,0 +1,48 @@
+{
+  "schema": 2,
+  "picks": [
+    {
+      "id": "program:alpha",
+      "kind": "program",
+      "name": "Alpha",
+      "page": "apps",
+      "exe": "alpha.exe"
+    },
+    {
+      "id": "program:00000000000000a1",
+      "kind": "program",
+      "name": "Beta",
+      "page": "apps",
+      "exe": "beta.exe",
+      "location": "Q:\\Invented\\Beta\\beta.exe"
+    },
+    {
+      "id": "folder:downloads",
+      "kind": "folder",
+      "name": "Downloads",
+      "page": "folders",
+      "folder": "Downloads"
+    },
+    {
+      "id": "folder:00000000000000b2",
+      "kind": "folder",
+      "name": "Gamma",
+      "page": "folders",
+      "location": "%USERPROFILE%\\Invented\\Gamma"
+    },
+    {
+      "id": "site:alpha.example",
+      "kind": "site",
+      "name": "Alpha site",
+      "page": "browser",
+      "host": "alpha.example"
+    },
+    {
+      "id": "file:00000000000000c3",
+      "kind": "file",
+      "name": "Delta.txt",
+      "page": "folders",
+      "location": "Q:\\Invented\\Delta\\Delta.txt"
+    }
+  ]
+}

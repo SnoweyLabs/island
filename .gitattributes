@@ -1,0 +1,3 @@
+# The add-on's files are checked out exactly as git holds them, on every computer: the zip in ship/addon must equal them byte for byte
+# (ExtensionGuardTests), and a Windows clone would otherwise turn their line ends into CRLF (WORK-ORDER-14 section 1).
+extension/** -text
